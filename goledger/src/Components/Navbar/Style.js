@@ -3,15 +3,19 @@ import styled from "styled-components";
 export const Nav = styled.div`
     display: flex;
     height: 56px;
-    background-color: lime;
+    background-color: #04AA6D;
     align-items: flex-end;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
 `;
 
 export const NavContent = styled.div`
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     width: 100%;
     height: 45px;
+    margin: 0 8px;
+
 `;
 
 export const Button = styled.button`
@@ -20,6 +24,7 @@ export const Button = styled.button`
     background-color: Transparent;
     border: none;
     padding: 0;
+    
 `;
 
 export const Link = styled.div`
@@ -45,6 +50,10 @@ export const A = styled.a`
     color: black;
 `;
 
+export const Links = styled.div`
+    display: flex;
+`;
+
 export const DropdownDiv = styled.div`
     display: flex;
     flex-direction: column;
@@ -55,6 +64,11 @@ export const DropdownDiv = styled.div`
     width: min-content;
     white-space: nowrap;
     padding: 6px 0;
+`;
+
+export const HomePageLink = styled(A)`
+    font-size: 28px;
+    font-weight: bold;
 `;
 
 export const DropdownItem = styled(A)`

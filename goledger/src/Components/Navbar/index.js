@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { IoIosArrowDropdown } from 'react-icons/io';
 import {
     Nav, NavContent, Button, Link, P, Dropdown, A, 
-    DropdownDiv,
-    DropdownItem,
+    DropdownDiv, DropdownItem, Links, HomePageLink,
 } from './Style';
 
 const Navbar = () => {
@@ -14,9 +13,9 @@ const Navbar = () => {
     const showDropdown = () => {
         return (
             <DropdownDiv>
-                <DropdownItem href='/'>Cadastrar {valueType}</DropdownItem>
-                <DropdownItem href='/'>Atualizar {valueType}</DropdownItem>
-                <DropdownItem href='/'>Deletar {valueType}</DropdownItem>
+                <DropdownItem onClick={() => { setArtistDropdownState(false); setAlbumDropdownState(false); } } href={`/registrar/${valueType.toLowerCase()}`}>Cadastrar {valueType}</DropdownItem>
+                <DropdownItem onClick={() => { setArtistDropdownState(false); setAlbumDropdownState(false); } } href='/'>Atualizar {valueType}</DropdownItem>
+                <DropdownItem onClick={() => { setArtistDropdownState(false); setAlbumDropdownState(false); } } href='/'>Deletar {valueType}</DropdownItem>
             </DropdownDiv>
         );
     };
@@ -24,32 +23,35 @@ const Navbar = () => {
     return (
         <Nav>
             <NavContent>
-                <Link>
-                    <Dropdown>
-                        <A>Artistas</A>
-                        <Button onClick={() => {
-                            setArtistDropdownState(!artistDropdownState);
-                            setAlbumDropdownState(false);
-                            setValueType('Artista');
-                        }}>
-                            <IoIosArrowDropdown />
-                        </Button>
-                    </Dropdown>
-                    {artistDropdownState ? showDropdown() : null}
-                </Link>
-                <Link>
-                    <Dropdown>
-                        <A>Albuns</A>
-                        <Button onClick={() => {
-                            setAlbumDropdownState(!albumDropdownState);
-                            setArtistDropdownState(false);
-                            setValueType('Album');
-                        }}>
-                            <IoIosArrowDropdown />
-                        </Button>
-                    </Dropdown>
-                    {albumDropdownState ? showDropdown() : null}
-                </Link>
+                <HomePageLink href="/">GoLedger</HomePageLink>
+                <Links>
+                    <Link>
+                        <Dropdown>
+                            <A href="/artistas/">Artistas</A>
+                            <Button onClick={() => {
+                                setArtistDropdownState(!artistDropdownState);
+                                setAlbumDropdownState(false);
+                                setValueType('Artista');
+                            }}>
+                                <IoIosArrowDropdown />
+                            </Button>
+                        </Dropdown>
+                        {artistDropdownState ? showDropdown() : null}
+                    </Link>
+                    <Link>
+                        <Dropdown>
+                            <A href="/albuns">Albuns</A>
+                            <Button onClick={() => {
+                                setAlbumDropdownState(!albumDropdownState);
+                                setArtistDropdownState(false);
+                                setValueType('Album');
+                            }}>
+                                <IoIosArrowDropdown />
+                            </Button>
+                        </Dropdown>
+                        {albumDropdownState ? showDropdown() : null}
+                    </Link>
+                </Links>
             </NavContent>
             
         </Nav>
