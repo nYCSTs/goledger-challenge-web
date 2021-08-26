@@ -2,7 +2,13 @@ import { APIArtist } from './baseService/baseService';
 
 export const getArtistsList = async () => {
   try {
-    const response = await APIArtist.get('');
+    const response = await APIArtist.post('/query/search', {
+      query: {
+        selector: {
+          '@assetType': 'artist',
+        },
+      },
+    });
     return response;
   } catch (err) {
     console.error(err);

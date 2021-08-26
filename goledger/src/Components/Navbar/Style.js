@@ -7,6 +7,7 @@ export const Nav = styled.div`
     align-items: flex-end;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
+    margin-bottom: 24px;
 `;
 
 export const NavContent = styled.div`
