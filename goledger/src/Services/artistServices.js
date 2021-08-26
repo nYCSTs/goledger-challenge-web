@@ -1,11 +1,11 @@
 import { APIArtist } from './baseService/baseService';
 
-export const getArtistsList = async () => {
+export const getAssetData = async (assetType) => {
   try {
     const response = await APIArtist.post('/query/search', {
       query: {
         selector: {
-          '@assetType': 'artist',
+          '@assetType': assetType,
         },
       },
     });

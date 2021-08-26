@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
-import DataList from '../../Components/ArtistData';
+import ArtistData from '../../Components/ArtistData';
 import ListComponent from '../../Components/ListComponent';
-import { getArtistsList } from '../../Services/artistServices';
+import { getAssetData } from '../../Services/artistServices';
 
 const ListArtists = () => {
   const [artistList, setArtistList] = useState([]);
 
-  const renderCategories = () => {
+  const renderArtists = () => {
     if (artistList?.length === 0) {
       return <h1>Carregando...</h1>;
     }
     return artistList?.map((data) => (
-      <DataList
+      <ArtistData
         type="artist"
         name={data?.name}
         description={data?.description}
@@ -21,14 +21,14 @@ const ListArtists = () => {
   };
 
   useEffect(() => {
-    getArtistsList()
+    getAssetData('artist')
       .then((r) => setArtistList(r.data.result));
   }, []);
 
   return (
     <ListComponent
       type="Artist"
-      list={renderCategories()}
+      list={renderArtists()}
       registPath="/artista/register"
     />
   );

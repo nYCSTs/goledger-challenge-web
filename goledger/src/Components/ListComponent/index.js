@@ -1,3 +1,4 @@
+import { Grid, Row } from 'react-flexbox-grid';
 import {
   Page, Button, Listing, H2, A, Title,
 } from './Style';
@@ -15,7 +16,11 @@ const ListComponent = ({ type, list, registPath }) => (
       </A>
     </Title>
     <Listing>
-      {list}
+      <Grid fluid>
+        <Row>
+          {list}
+        </Row>
+      </Grid>
     </Listing>
   </Page>
 );
