@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Nav = styled.div`
     display: flex;
@@ -27,7 +27,7 @@ export const Button = styled.button`
     
 `;
 
-export const Link = styled.div`
+export const NavItem = styled.div`
     margin-right: 14px;
     width: 92px;
     align-items: center;
@@ -74,4 +74,5 @@ export const HomePageLink = styled(A)`
 export const DropdownItem = styled(A)`
     padding: 6px;
     color: black;
+    font-size: 14px;
 `;
