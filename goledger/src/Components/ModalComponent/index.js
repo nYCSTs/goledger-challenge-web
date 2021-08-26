@@ -1,0 +1,54 @@
+import Modal from 'react-modal';
+import { deleteAsset } from '../../Services/artistServices';
+import {
+  P, Button, Buttons,
+} from './Style';
+
+const ModalComponent = ({
+  operationType, type, data, modalState, setModalState,
+}) => {
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      width: '300px',
+      transform: 'translate(-50%, -50%)',
+    },
+  };
+
+  const deleteAssetFromApi = async () => {
+    await deleteAsset(data['@key'])
+      .then((r) => console.log(r));
+  };
+
+  return (
+    <Modal
+      isOpen={modalState}
+      style={customStyles}
+    >
+      {operationType === 'edit' ? (
+        <div>
+          <h1>Editar</h1>
+        </div>
+      )
+        : (
+          <div>
+            <P>
+              {`Are you sure that you want to remove the ${type} `}
+              <strong>{data.name}</strong>
+              ?
+            </P>
+            <Buttons>
+              <Button onClick={() => setModalState(false)}>Cancel</Button>
+              <Button onClick={async () => deleteAssetFromApi()}>Delete</Button>
+            </Buttons>
+          </div>
+        )}
+    </Modal>
+  );
+};
+
+export default ModalComponent;

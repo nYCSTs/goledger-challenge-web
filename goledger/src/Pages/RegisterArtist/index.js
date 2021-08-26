@@ -12,8 +12,8 @@ const Register = () => {
   const [artistDescription, setArtistDescription] = useState();
   const [selectedCountry, setSelectedCountry] = useState();
 
-  const submitRegister = () => {
-    registerArtist(
+  const submitRegister = async () => {
+    await registerArtist(
       artistName,
       artistDescription,
       countryCodes.filter((r) => r.code === selectedCountry)[0].name,

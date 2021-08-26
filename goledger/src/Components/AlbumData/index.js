@@ -23,7 +23,6 @@ const AlbumData = ({
       <Information>{`Rating: ${explicit ? '' : 'explicit'}`}</Information>
     </Data>
   </Col>
-
 );
 
 export default AlbumData;

@@ -13,9 +13,8 @@ const ListArtists = () => {
     return artistList?.map((data) => (
       <ArtistData
         type="artist"
-        name={data?.name}
-        description={data?.description}
-        country={data?.location}
+        data={data}
+        description={data.description}
       />
     ));
   };
@@ -24,6 +23,8 @@ const ListArtists = () => {
     getAssetData('artist')
       .then((r) => setArtistList(r.data.result));
   }, []);
+
+  console.log(artistList);
 
   return (
     <ListComponent
