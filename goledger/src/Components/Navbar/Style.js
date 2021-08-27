@@ -8,20 +8,19 @@ export const Nav = styled.div`
     justify-content: space-between;
     height: 68px;
     padding: 12px;
+    margin-bottom: 28px;
 `;
 
 export const Button = styled.button`
     display: flex;
-    align-items: center;
     background-color: Transparent;
     border: none;
-    padding: 6px;
+    cursor: pointer;
+    padding: 6px 10px;
+    text-align: center;
 `;
 
 export const NavItem = styled.div`
-    display: flex;
-    width: 92px;
-    justify-content: space-around;
     border: 1px solid black;
     border-radius: 8px;
 `;
@@ -33,7 +32,7 @@ export const A = styled.a`
 export const Links = styled.div`
     display: flex;
     align-items: flex-end;
-    width: 200px;
+    width: 150px;
     justify-content: space-between;
 `;
 

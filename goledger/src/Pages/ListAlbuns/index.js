@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import AlbumData from '../../Components/AlbumData';
 import ListComponent from '../../Components/ListComponent';
-import { getAssetData } from '../../Services/artistServices';
+import { getAssetDataList } from '../../Services/artistServices';
 
 const ListAlbuns = () => {
   const [albumList, setAlbumList] = useState([]);
@@ -22,7 +22,7 @@ const ListAlbuns = () => {
   };
 
   useEffect(() => {
-    getAssetData('album')
+    getAssetDataList('album')
       .then((r) => setAlbumList(r.data.result));
   }, []);
   return (
