@@ -6,9 +6,15 @@ export const Page = styled.div`
 export const Button = styled.button`
     border: 1px solid black;
     border-radius: 4px;
-    font-size: 16px;
-    padding: 0 14px;
+    padding: 10px;
+    font-size: 18px;
     background-color: Transparent;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #04AA6D;
+        color: white;
+    }
 `;
 
 export const Listing = styled.div`

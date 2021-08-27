@@ -24,8 +24,6 @@ const ListArtists = () => {
       .then((r) => setArtistList(r.data.result));
   }, []);
 
-  console.log(artistList);
-
   return (
     <ListComponent
       type="Artist"

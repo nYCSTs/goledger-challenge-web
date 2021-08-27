@@ -10,13 +10,13 @@ const ListComponent = ({ type, list, registPath }) => (
       <A href={registPath}>
         <Button>
           Register
-          <br />
+          {' '}
           {type}
         </Button>
       </A>
     </Title>
     <Listing>
-      <Grid fluid>
+      <Grid>
         <Row>
           {list}
         </Row>

@@ -25,9 +25,6 @@ const ListAlbuns = () => {
     getAssetData('album')
       .then((r) => setAlbumList(r.data.result));
   }, []);
-
-  console.log(albumList);
-
   return (
     <ListComponent
       type="Album"
@@ -38,5 +35,3 @@ const ListAlbuns = () => {
 };
 
 export default ListAlbuns;
-
-// name, year, genre, explicit, nTracks
