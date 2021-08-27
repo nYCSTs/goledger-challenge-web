@@ -38,7 +38,11 @@ export const registerArtist = async (artistName, artistDescription, artistCountr
 export const deleteAsset = async (assetID) => {
   try {
     const response = await APIArtist.delete('/invoke/deleteAsset/', {
-      'key': assetID,
+      'data': {
+        'key': {
+          '@key': assetID,
+        },
+      },
     });
     return response;
   } catch (err) {

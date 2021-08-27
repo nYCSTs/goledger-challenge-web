@@ -20,8 +20,12 @@ const ModalComponent = ({
   };
 
   const deleteAssetFromApi = async () => {
-    await deleteAsset(data['@key'])
-      .then((r) => console.log(r));
+    const response = await deleteAsset(data['@key'])
+      .then((r) => (r));
+    if (response.status === 200) {
+      alert(`${type} successfully deleted`);
+    }
+    setModalState(false);
   };
 
   return (
