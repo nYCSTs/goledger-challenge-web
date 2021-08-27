@@ -5,7 +5,7 @@ import {
 } from './Style';
 
 const ModalComponent = ({
-  type, data, modalState, setModalState,
+  type, data, modalState, setModalState, refreshFunction,
 }) => {
   const customStyles = {
     content: {
@@ -25,6 +25,7 @@ const ModalComponent = ({
     if (response.status === 200) {
       alert(`${type} successfully deleted`);
     }
+    refreshFunction();
     setModalState(false);
   };
 

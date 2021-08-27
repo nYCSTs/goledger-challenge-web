@@ -6,25 +6,28 @@ import { getAssetDataList } from '../../Services/artistServices';
 const ListAlbuns = () => {
   const [albumList, setAlbumList] = useState([]);
 
+  const getAlbumList = () => {
+    getAssetDataList('album')
+      .then((r) => setAlbumList(r.data.result));
+  };
+
   const renderAlbuns = () => {
     if (albumList?.length === 0) {
       return <h1>Carregando...</h1>;
     }
-    return albumList?.map((data) => (
+    return albumList?.map((data, idx) => (
       <AlbumData
-        name={data.name}
-        year={data.year}
-        genre={data.genre}
-        explicit={data.explicit}
-        nTracks={data.nTracks}
+        key={idx}
+        data={data}
+        refreshFunction={getAlbumList}
       />
     ));
   };
 
   useEffect(() => {
-    getAssetDataList('album')
-      .then((r) => setAlbumList(r.data.result));
+    getAlbumList();
   }, []);
+
   return (
     <ListComponent
       type="Album"
