@@ -64,7 +64,6 @@ export const registerArtist = async (artistName, artistDescription, artistCountr
         },
       ],
     });
-    console.log(response);
     return response;
   } catch (err) {
     console.error(err);
@@ -125,6 +124,26 @@ export const registerStreaming = async (name) => {
     });
     if (response.status === 200) {
       alert('Streaming service registered with success.');
+    }
+    return response;
+  } catch (err) {
+    console.error(err);
+    return err;
+  }
+};
+
+export const updateArtist = async (name, location, description) => {
+  try {
+    const response = await APIArtist.put('/invoke/updateAsset', {
+      'update': {
+        '@assetType': 'artist',
+        name,
+        location,
+        description,
+      },
+    });
+    if (response.status === 200) {
+      alert('Updated!');
     }
     return response;
   } catch (err) {
