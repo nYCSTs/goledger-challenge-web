@@ -8,10 +8,13 @@ const Navbar = () => (
     <HomePageLink href="/">GoLedger</HomePageLink>
     <Links>
       <NavItem>
-        <A href="/artistas/"><Button>Artistas</Button></A>
+        <A href="/artists/"><Button>Artistas</Button></A>
+      </NavItem>
+      <NavItem style={{ margin: '0 12px' }}>
+        <A href="/albuns"><Button>Albuns</Button></A>
       </NavItem>
       <NavItem>
-        <A href="/albuns"><Button>Albuns</Button></A>
+        <A href="/streaming"><Button>Streaming</Button></A>
       </NavItem>
     </Links>
   </Nav>

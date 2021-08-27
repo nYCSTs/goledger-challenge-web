@@ -32,7 +32,6 @@ export const A = styled.a`
 export const Links = styled.div`
     display: flex;
     align-items: flex-end;
-    width: 150px;
     justify-content: space-between;
 `;
 

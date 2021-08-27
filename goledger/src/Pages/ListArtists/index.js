@@ -34,7 +34,7 @@ const ListArtists = () => {
     <ListComponent
       type="Artist"
       list={renderArtists()}
-      registPath="/artista/register"
+      registPath="/artist/register"
     />
   );
 };

@@ -5,7 +5,7 @@ import {
 const RegisterAsset = ({ asset, children, submitFunction }) => (
   <Form>
     <H1>
-      Cadastrar
+      Register
       {' '}
       {asset}
     </H1>

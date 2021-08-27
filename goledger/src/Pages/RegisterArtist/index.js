@@ -7,7 +7,7 @@ import {
   InputDiv, P, Input,
 } from '../../Components/RegisterComponent/Style';
 
-const Register = () => {
+const RegisterArtist = () => {
   const [artistName, setArtistName] = useState();
   const [artistDescription, setArtistDescription] = useState();
   const [selectedCountry, setSelectedCountry] = useState();
@@ -47,4 +47,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default RegisterArtist;

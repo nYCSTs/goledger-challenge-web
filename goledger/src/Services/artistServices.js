@@ -64,6 +64,33 @@ export const registerArtist = async (artistName, artistDescription, artistCountr
         },
       ],
     });
+    console.log(response);
+    return response;
+  } catch (err) {
+    console.error(err);
+    return err;
+  }
+};
+
+export const registerAlbum = async (name, genre, year, artist, nTracks, explicit, strOptions) => {
+  try {
+    const response = await APIArtist.post('/invoke/createAsset', {
+      asset: [
+        {
+          '@assetType': 'album',
+          name,
+          year,
+          nTracks,
+          artist: {
+            '@assetType': 'artist',
+            '@key': artist['@key'],
+          },
+          genre,
+          explicit,
+          strOptions,
+        },
+      ],
+    });
     return response;
   } catch (err) {
     console.error(err);

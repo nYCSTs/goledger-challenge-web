@@ -8,7 +8,6 @@ export const Form = styled.div`
 `;
 
 export const InputDiv = styled.div`
-
 `;
 
 export const ChildDiv = styled.div`
@@ -18,16 +17,17 @@ export const ChildDiv = styled.div`
 
 export const P = styled.p`
     font-weight: bold;
+    width: min-content;
     margin-bottom: 7px;
 `;
 
 export const Input = styled.input`
     border: thin solid rgba(77, 77, 77, 0.3);
-    padding: 5px 10px;
+    padding: 5px 0;
     border-radius: 4px;
-    color: #4d4d4d;
+    text-indent: 5px;
     outline: none;
-    width: 100%;
+    width: ${(props) => `${props.width}%`};
 `;
 
 export const Button = styled.button`
