@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import RegisterAsset from '../../Components/RegisterComponent';
+import RegisterAsset from '../../Components/AssetForm';
 import { registerStreaming } from '../../Services/artistServices';
 import {
   InputDiv, P, Input,
-} from '../../Components/RegisterComponent/Style';
+} from '../../Components/AssetForm/Style';
 
 const RegisterStreamingService = () => {
   const [serviceName, setServiceName] = useState();

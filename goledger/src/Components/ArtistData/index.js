@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router';
 import { Col } from 'react-flexbox-grid';
 import { BsArrowUpShort, BsArrowDownShort, BsFillTrashFill } from 'react-icons/bs';
 import { MdModeEdit } from 'react-icons/md';
@@ -10,9 +11,9 @@ import {
 const ArtistData = ({
   type, data, description = 'No description for this artist :(',
 }) => {
+  const history = useHistory();
   const [showText, setShowText] = useState('hide');
   const [modalState, setModalState] = useState(false);
-  const [operationType, setOperationType] = useState();
   const [showDescription, setShowDescription] = useState(true);
 
   return (
@@ -29,16 +30,13 @@ const ArtistData = ({
               <MdModeEdit
                 style={{ cursor: 'pointer' }}
                 onClick={() => {
-                  setModalState(true);
-                  setOperationType('edit');
+                  const key = data['@key'];
+                  history.push(`/artist/edit/${key.substring(key.indexOf(':') + 1)}`);
                 }}
               />
               <BsFillTrashFill
                 style={{ cursor: 'pointer' }}
-                onClick={() => {
-                  setModalState(true);
-                  setOperationType('delete');
-                }}
+                onClick={() => setModalState(true)}
               />
             </Tools>
           </Top>
@@ -67,7 +65,6 @@ const ArtistData = ({
         type="artist"
         setModalState={setModalState}
         modalState={modalState}
-        operationType={operationType}
         data={data}
       />
     </>

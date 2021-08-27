@@ -5,7 +5,7 @@ import {
 } from './Style';
 
 const ModalComponent = ({
-  operationType, type, data, modalState, setModalState,
+  type, data, modalState, setModalState,
 }) => {
   const customStyles = {
     content: {
@@ -33,24 +33,17 @@ const ModalComponent = ({
       isOpen={modalState}
       style={customStyles}
     >
-      {operationType === 'edit' ? (
-        <div>
-          <h1>Editar</h1>
-        </div>
-      )
-        : (
-          <div>
-            <P>
-              {`Are you sure that you want to remove the ${type} `}
-              <strong>{data.name}</strong>
-              ?
-            </P>
-            <Buttons>
-              <Button onClick={() => setModalState(false)}>Cancel</Button>
-              <Button onClick={async () => deleteAssetFromApi()}>Delete</Button>
-            </Buttons>
-          </div>
-        )}
+      <div>
+        <P>
+          {`Are you sure that you want to remove the ${type} `}
+          <strong>{data.name}</strong>
+          ?
+        </P>
+        <Buttons>
+          <Button onClick={() => setModalState(false)}>Cancel</Button>
+          <Button onClick={async () => deleteAssetFromApi()}>Delete</Button>
+        </Buttons>
+      </div>
     </Modal>
   );
 };

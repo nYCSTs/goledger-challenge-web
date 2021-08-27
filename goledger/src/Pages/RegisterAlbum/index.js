@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Multiselect } from 'multiselect-react-dropdown';
-import RegisterAsset from '../../Components/RegisterComponent';
+import RegisterAsset from '../../Components/AssetForm';
 import { registerAlbum, getAssetDataList } from '../../Services/artistServices';
 import {
   InputDiv, P, Input,
-} from '../../Components/RegisterComponent/Style';
+} from '../../Components/AssetForm/Style';
 import { MultiInput, Select } from './Style';
 
 const RegisterAlbum = () => {
@@ -53,8 +53,6 @@ const RegisterAlbum = () => {
       setArtist(artistList[0]);
     }
   }, [artistList]);
-
-  console.log(artist);
 
   return (
     <>

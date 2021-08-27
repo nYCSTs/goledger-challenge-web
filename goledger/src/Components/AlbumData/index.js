@@ -9,7 +9,7 @@ import { Tools } from '../ArtistData/Style';
 const AlbumData = ({
   name, year, genre, explicit, nTracks, editFunction, deleteFunction,
 }) => (
-  <Col md={4} sm={6}>
+  <Col md={3} sm={6}>
     <Data>
       <Top>
         <AlbumTitle>{`${name} (${year})`}</AlbumTitle>

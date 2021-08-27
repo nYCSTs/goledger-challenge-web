@@ -1,11 +1,8 @@
 import { useState } from 'react';
-import ReactFlagsSelect from 'react-flags-select';
-import RegisterAsset from '../../Components/RegisterComponent';
+import RegisterAsset from '../../Components/AssetForm';
+import ArtistForm from '../../Components/ArtistForm';
 import countryCodes from '../../Constants/countryCodes';
 import { registerArtist } from '../../Services/artistServices';
-import {
-  InputDiv, P, Input,
-} from '../../Components/RegisterComponent/Style';
 
 const RegisterArtist = () => {
   const [artistName, setArtistName] = useState();
@@ -21,28 +18,15 @@ const RegisterArtist = () => {
   };
 
   return (
-    <RegisterAsset asset="Artista" submitFunction={submitRegister}>
-      <div>
-        <InputDiv>
-          <P>Nome:</P>
-          <Input onChange={(e) => setArtistName(e.target.value)} />
-        </InputDiv>
-        <InputDiv>
-          <P>Descrição:</P>
-          <Input onChange={(e) => setArtistDescription(e.target.value)} />
-        </InputDiv>
-        <InputDiv>
-          <P>Pais:</P>
-          <ReactFlagsSelect
-            selected={selectedCountry}
-            onSelect={(cc) => setSelectedCountry(cc)}
-            placeholder=" "
-            searchable
-            searchPlaceholder="Buscar país"
-            fullWidth={false}
-          />
-        </InputDiv>
-      </div>
+    <RegisterAsset asset="Artist" submitFunction={submitRegister} title="Register">
+      <ArtistForm
+        name={artistName}
+        setName={setArtistName}
+        description={artistDescription}
+        setDescription={setArtistDescription}
+        country={selectedCountry}
+        setCountry={setSelectedCountry}
+      />
     </RegisterAsset>
   );
 };

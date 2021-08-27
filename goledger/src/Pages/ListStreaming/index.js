@@ -22,7 +22,6 @@ const ListStreaming = () => {
       .then((r) => setStreamingList(r.data.result));
   }, []);
 
-  console.log(streamingList);
   return (
     <ListComponent
       type="streaming"

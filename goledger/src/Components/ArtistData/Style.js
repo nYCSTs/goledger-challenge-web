@@ -27,6 +27,7 @@ export const Button = styled.button`
     background-color: Transparent;
     border: none;
     font-weight: bold;
+    cursor: pointer;
 `;
 
 export const Description = styled.div`

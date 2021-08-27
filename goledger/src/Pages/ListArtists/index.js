@@ -10,19 +10,13 @@ const ListArtists = () => {
     if (artistList?.length === 0) {
       return <h1>Carregando...</h1>;
     }
-    return artistList?.map((data) => {
-      const key = data['@key'];
-      const url = '/artist/'.concat(key.substring(key.indexOf(':') + 1));
-      return (
-        <a style={{ textDecoration: 'none', color: 'black' }} href={url}>
-          <ArtistData
-            type="artist"
-            data={data}
-            description={data.description}
-          />
-        </a>
-      );
-    });
+    return artistList?.map((data) => (
+      <ArtistData
+        type="artist"
+        data={data}
+        description={data.description}
+      />
+    ));
   };
 
   useEffect(() => {
