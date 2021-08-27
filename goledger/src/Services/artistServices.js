@@ -112,3 +112,23 @@ export const deleteAsset = async (assetID) => {
     return err;
   }
 };
+
+export const registerStreaming = async (name) => {
+  try {
+    const response = await APIArtist.post('/invoke/createAsset', {
+      'asset': [
+        {
+          '@assetType': 'streaming',
+          'name': name,
+        },
+      ],
+    });
+    if (response.status === 200) {
+      alert('Streaming service registered with success.');
+    }
+    return response;
+  } catch (err) {
+    console.error(err);
+    return err;
+  }
+};
