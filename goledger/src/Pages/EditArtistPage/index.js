@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import ArtistForm from '../../Components/ArtistForm';
-import RegisterAsset from '../../Components/AssetForm';
+import AssetForm from '../../Components/AssetForm';
 import countryCodes from '../../Constants/countryCodes';
 import { getAssetData, updateArtist } from '../../Services/artistServices';
 
@@ -29,7 +29,7 @@ const EditArtistPage = () => {
   }, []);
 
   return (
-    <RegisterAsset asset="Artist" submitFunction={updateArtistData} title="Edit">
+    <AssetForm asset="Artist" submitFunction={updateArtistData} title="Edit">
       <ArtistForm
         name={artistName}
         setName={setArtistName}
@@ -38,7 +38,7 @@ const EditArtistPage = () => {
         country={selectedCountry}
         setCountry={setSelectedCountry}
       />
-    </RegisterAsset>
+    </AssetForm>
 
   );
 };

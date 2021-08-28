@@ -5,12 +5,14 @@ import {
 
 const Navbar = () => (
   <Nav>
-    <HomePageLink href="/">GoLedger</HomePageLink>
+    <div>
+      <HomePageLink href="/">GoLedger</HomePageLink>
+    </div>
     <Links>
       <NavItem>
         <A href="/artists/"><Button>Artistas</Button></A>
       </NavItem>
-      <NavItem style={{ margin: '0 12px' }}>
+      <NavItem>
         <A href="/albuns"><Button>Albuns</Button></A>
       </NavItem>
       <NavItem>

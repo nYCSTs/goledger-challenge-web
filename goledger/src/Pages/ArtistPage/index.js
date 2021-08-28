@@ -4,7 +4,7 @@ import { useParams } from 'react-router';
 import AlbumData from '../../Components/AlbumData';
 import { getAssetData, getArtistAlbuns } from '../../Services/artistServices';
 import {
-  ArtistData, Information, AlbunsList, Title,
+  ArtistData, AlbunsList, Title, InformationData, InformationDiv, InformationTitle,
 } from './Style';
 
 const ArtistPage = () => {
@@ -34,9 +34,11 @@ const ArtistPage = () => {
 
   return (
     <ArtistData>
-      <Information>{`Artist name: ${artistInformation?.name}`}</Information>
-      <Information>{`Location: ${artistInformation?.location}`}</Information>
-      <Information>{`Description: ${artistInformation?.description}`}</Information>
+      <InformationTitle>Artist Name: </InformationTitle>
+      <InformationData>{artistInformation?.name}</InformationData>
+      <InformationTitle>Description:</InformationTitle>
+      <InformationData>{artistInformation?.description}</InformationData>
+      <hr />
       <AlbunsList>
         <Title>Albuns:</Title>
         <Grid>
@@ -50,36 +52,3 @@ const ArtistPage = () => {
 };
 
 export default ArtistPage;
-
-// {
-//   "@assetType": "album",
-//   "@key": "album:09bd37c3-96ab-573a-acd8-87efadaca61e",
-//   "@lastTouchBy": "org1MSP",
-//   "artist": {
-//       "@assetType": "artist",
-//       "@key": "artist:2158e89a-8d5d-51af-be48-e1b909e6b89c"
-//   },
-//   "explicit": false,
-//   "genre": "JPop",
-//   "nTracks": 1,
-//   "name": "Uutsu",
-//   "strOptions": [
-//       {
-//           "@assetType": "streaming",
-//           "@key": "streaming:2d77fb6a-7532-52ca-a759-a367825238c2"
-//       },
-//       {
-//           "@assetType": "streaming",
-//           "@key": "streaming:5588c698-365f-596a-a93d-aac69f155c59"
-//       },
-//       {
-//           "@assetType": "streaming",
-//           "@key": "streaming:65a12579-dfe6-514c-a066-9ed4415c72e5"
-//       },
-//       {
-//           "@assetType": "streaming",
-//           "@key": "streaming:c97df359-881b-5fd3-9e46-5b36c7b94bc2"
-//       }
-//   ],
-//   "year": 2021
-// }

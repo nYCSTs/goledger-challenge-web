@@ -2,6 +2,7 @@ import ReactFlagsSelect from 'react-flags-select';
 import {
   InputDiv, P, Input,
 } from '../AssetForm/Style';
+import TextArea from './Style';
 
 const ArtistForm = ({
   name, setName, description, setDescription, country, setCountry,
@@ -13,7 +14,12 @@ const ArtistForm = ({
     </InputDiv>
     <InputDiv>
       <P>Descrição:</P>
-      <Input value={description} onChange={(e) => setDescription(e.target.value)} />
+      <TextArea
+        rows={10}
+        spellcheck
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+      />
     </InputDiv>
     <InputDiv>
       <P>Pais:</P>

@@ -3,16 +3,23 @@ import styled from 'styled-components';
 export const Form = styled.div`
     margin: 52px auto;
     border: 1px solid rgba(0,0,0,0.3);
-    padding: 32px;
+    padding: 26px;
     width: 50%;
+
+    @media(max-width: 850px) {
+        width: 80%;
+    }
+
+    @media(max-width: 500px) {
+        width: 100%;
+    }
 `;
 
 export const InputDiv = styled.div`
 `;
 
 export const ChildDiv = styled.div`
-    width: 80%;
-    margin: 12px 0;
+    margin: 16px 0;
 `;
 
 export const P = styled.p`
@@ -26,7 +33,7 @@ export const Input = styled.input`
     border-radius: 4px;
     text-indent: 5px;
     outline: none;
-    width: ${(props) => `${props.width}%`};
+    width: 100%;
 `;
 
 export const Button = styled.button`

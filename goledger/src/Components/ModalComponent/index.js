@@ -14,7 +14,7 @@ const ModalComponent = ({
       right: 'auto',
       bottom: 'auto',
       marginRight: '-50%',
-      width: '300px',
+      width: '250px',
       transform: 'translate(-50%, -50%)',
     },
   };

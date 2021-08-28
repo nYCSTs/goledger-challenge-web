@@ -6,37 +6,46 @@ export const Nav = styled.div`
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
     justify-content: space-between;
-    height: 68px;
-    padding: 12px;
+    padding: 10px;
     margin-bottom: 28px;
+    height: 90px;
+
+    @media(max-width: 500px) {
+        flex-direction: column;
+        height: auto;
+    }
 `;
 
 export const Button = styled.button`
-    display: flex;
     background-color: Transparent;
-    border: none;
-    cursor: pointer;
-    padding: 6px 10px;
-    text-align: center;
-`;
-
-export const NavItem = styled.div`
     border: 1px solid black;
+    cursor: pointer;
+    padding: 5px 10px;
     border-radius: 8px;
 `;
 
+export const NavItem = styled.div`
+`;
+
 export const A = styled.a`
-    text-decoration: none;
+    
 `;
 
 export const Links = styled.div`
     display: flex;
-    align-items: flex-end;
     justify-content: space-between;
+    width: 230px;
+    align-items: flex-end;
+
+    @media(max-width: 500px) {
+        margin-top: 12px;
+        width: auto;
+    }
 `;
 
-export const HomePageLink = styled(A)`
+export const HomePageLink = styled.a`
     font-size: 36px;
     font-weight: bold;
     color: black;
+    text-decoration: none;
 `;

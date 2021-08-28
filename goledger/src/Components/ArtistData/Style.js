@@ -31,9 +31,7 @@ export const Button = styled.button`
 export const Tools = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-around;    
-    width: 30px;
-    align-items: center;
+    justify-content: space-around;
 `;
 
 export const Top = styled.div`
