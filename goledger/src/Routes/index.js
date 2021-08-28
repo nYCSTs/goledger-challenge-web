@@ -8,6 +8,8 @@ import ListStreaming from '../Pages/ListStreaming';
 import RegisterArtist from '../Pages/RegisterArtist';
 import RegisterStreamingService from '../Pages/RegisterStreamingService';
 import EditArtistPage from '../Pages/EditArtistPage';
+import EditAlbumPage from '../Pages/EditAlbumPage';
+import EditStreamingPage from '../Pages/EditStreamingPage';
 
 const Routes = () => (
   <BrowserRouter>
@@ -21,9 +23,11 @@ const Routes = () => (
       {/* Albuns */}
       <Route path="/albuns" exact component={ListAlbuns} />
       <Route path="/album/register" exact component={RegisterAlbum} />
+      <Route path="/album/edit/:id" exact component={EditAlbumPage} />
       {/* Streaming */}
       <Route path="/streaming" exact component={ListStreaming} />
       <Route path="/streaming/register" exact component={RegisterStreamingService} />
+      <Route path="/streaming/edit/:id" exact component={EditStreamingPage} />
     </Switch>
   </BrowserRouter>
 );
