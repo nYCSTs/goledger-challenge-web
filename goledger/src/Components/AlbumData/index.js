@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Col } from 'react-flexbox-grid';
 import { BsFillTrashFill } from 'react-icons/bs';
-import { MdModeEdit } from 'react-icons/md';
+import { IoCheckmarkCircleSharp } from 'react-icons/io5';
+import { MdModeEdit, MdExplicit } from 'react-icons/md';
 import { useHistory } from 'react-router';
 import ModalComponent from '../ModalComponent';
 import {
@@ -15,7 +16,7 @@ const AlbumData = ({ data, refreshFunction, artistPage }) => {
 
   return (
     <>
-      <Col md={3} sm={6}>
+      <Col md={4} sm={6}>
         <Data>
           <Top>
             <AlbumTitle>{`${data?.name} (${data?.year})`}</AlbumTitle>
@@ -33,8 +34,12 @@ const AlbumData = ({ data, refreshFunction, artistPage }) => {
             ) : null}
           </Top>
           <Information>{`Tracks: ${data?.nTracks}`}</Information>
+          <Information>{`Year: ${data?.year}`}</Information>
           <Information>{`Genre: ${data?.genre}`}</Information>
-          <Information>{`Rating: ${data?.explicit ? '' : 'explicit'}`}</Information>
+          <Information>
+            Explicit:
+            {data.explicit ? <MdExplicit /> : <IoCheckmarkCircleSharp />}
+          </Information>
         </Data>
       </Col>
       <ModalComponent
