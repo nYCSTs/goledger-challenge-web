@@ -5,12 +5,13 @@ import { BsArrowUpShort, BsArrowDownShort, BsFillTrashFill } from 'react-icons/b
 import { MdModeEdit } from 'react-icons/md';
 import ModalComponent from '../ModalComponent';
 import {
-  Field, Title, P, Button, Description, Tools, Top,
+  Field, Title, P, Button, Tools, Top, A, ArtistInfo,
 } from './Style';
 
 const ArtistData = ({
   type, data, description = 'No description for this artist :(',
 }) => {
+  const key = data['@key'].substring(data['@key'].indexOf(':') + 1);
   const history = useHistory();
   const [showText, setShowText] = useState('hide');
   const [modalState, setModalState] = useState(false);
@@ -22,17 +23,17 @@ const ArtistData = ({
         <Field>
           <Top>
             <Title>
-              {data.name}
-              {' '}
-              {`(${data.location})`}
+              <ArtistInfo>
+                {data.name}
+                {' '}
+                {`(${data.location})`}
+              </ArtistInfo>
+              <A href={'/artist/'.concat(key)}>Artist Page</A>
             </Title>
             <Tools>
               <MdModeEdit
                 style={{ cursor: 'pointer' }}
-                onClick={() => {
-                  const key = data['@key'];
-                  history.push(`/artist/edit/${key.substring(key.indexOf(':') + 1)}`);
-                }}
+                onClick={() => history.push(`/artist/edit/${key}`)}
               />
               <BsFillTrashFill
                 style={{ cursor: 'pointer' }}
@@ -40,7 +41,7 @@ const ArtistData = ({
               />
             </Tools>
           </Top>
-          <Description>
+          <div>
             <P>
               {showDescription ? description : null}
             </P>
@@ -58,7 +59,7 @@ const ArtistData = ({
                 {`${showText} ${type} description`}
               </Button>
             </div>
-          </Description>
+          </div>
         </Field>
       </Col>
       <ModalComponent

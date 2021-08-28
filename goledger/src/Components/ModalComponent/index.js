@@ -37,7 +37,7 @@ const ModalComponent = ({
       <div>
         <P>
           {`Are you sure that you want to remove the ${type} `}
-          <strong>{data.name}</strong>
+          <strong>{data?.name}</strong>
           ?
         </P>
         <Buttons>
