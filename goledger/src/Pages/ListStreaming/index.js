@@ -6,20 +6,25 @@ import { getAssetDataList } from '../../Services/artistServices';
 const ListStreaming = () => {
   const [streamingList, setStreamingList] = useState([]);
 
+  const getStreamingList = () => {
+    getAssetDataList('streaming')
+      .then((r) => setStreamingList(r.data.result));
+  };
+
   const renderStreaming = () => {
     if (streamingList?.length === 0) {
       return <h1>Carregando...</h1>;
     }
     return streamingList?.map((ss) => (
       <StreamingData
-        streamingName={ss.name}
+        data={ss}
+        refreshFunction={getStreamingList}
       />
     ));
   };
 
   useEffect(() => {
-    getAssetDataList('streaming')
-      .then((r) => setStreamingList(r.data.result));
+    getStreamingList();
   }, []);
 
   return (
