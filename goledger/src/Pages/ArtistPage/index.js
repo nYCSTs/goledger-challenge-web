@@ -26,7 +26,6 @@ const ArtistPage = () => {
   }, []);
 
   useEffect(async () => {
-    console.log(id);
     await searchAsset('album', ({ artist: { '@key': 'artist:'.concat(id) } }))
       .then((r) => setAlbunsList(r.data.result));
   }, []);

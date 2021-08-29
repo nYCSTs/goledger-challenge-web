@@ -10,7 +10,7 @@ const RegisterAlbum = () => {
   const [artist, setArtist] = useState([]);
   const [year, setYear] = useState('2021');
   const [nTracks, setNTracks] = useState(1);
-  const [explicit, setExplicit] = useState('0');
+  const [explicit, setExplicit] = useState('Safe');
   const [albumName, setAlbumName] = useState('');
   const [selectedStreamingServices, setSelectedStreamingServices] = useState([]);
 

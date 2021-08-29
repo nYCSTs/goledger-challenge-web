@@ -84,13 +84,15 @@ const AlbumForm = ({
         </div>
         <div>
           <P>Explicit:</P>
-          <Select
-            defaultValue={explicit ? 'Explicit' : 'Safe'}
-            onChange={(e) => setExplicit(e.target.value)}
-          >
-            <option value="0">Safe</option>
-            <option value="1">Explicit</option>
-          </Select>
+          {explicit ? (
+            <Select
+              defaultValue={explicit}
+              onChange={(e) => setExplicit(e.target.value)}
+            >
+              <option value="Safe">Safe</option>
+              <option value="Explicit">Explicit</option>
+            </Select>
+          ) : null}
         </div>
       </Multi>
     </>
