@@ -6,6 +6,11 @@ import { getAssetDataList } from '../../Services/artistServices';
 const ListArtists = () => {
   const [artistList, setArtistList] = useState([]);
 
+  const getArtistList = async () => {
+    getAssetDataList('artist')
+      .then((r) => setArtistList(r.data.result));
+  };
+
   const renderArtists = () => {
     if (artistList?.length === 0) {
       return <h1>Carregando...</h1>;
@@ -16,13 +21,13 @@ const ListArtists = () => {
         type="artist"
         data={data}
         description={data.description}
+        refreshFunction={getArtistList}
       />
     ));
   };
 
   useEffect(() => {
-    getAssetDataList('artist')
-      .then((r) => setArtistList(r.data.result));
+    getArtistList();
   }, []);
 
   return (

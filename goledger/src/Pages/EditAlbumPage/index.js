@@ -3,7 +3,7 @@ import { useHistory, useParams } from 'react-router';
 import AlbumForm from '../../Components/AlbumForm';
 import AssetForm from '../../Components/AssetForm';
 import {
-  getAssetData, getAssetData2, updateAlbum,
+  getAssetData, updateAsset,
 } from '../../Services/artistServices';
 
 const EditAlbumPage = () => {
@@ -19,24 +19,24 @@ const EditAlbumPage = () => {
   const [streamingServices, setStreamingServices] = useState([]);
   const [streamingServicesOG, setStreamingServicesOG] = useState([]);
 
-  const updateArtistData = async () => {
-    const response = await updateAlbum(
+  const updateAlbumData = async () => {
+    const response = await updateAsset('album', {
       name,
       year,
       nTracks,
-      { '@assetType': 'artist', '@key': artist['@key'] },
+      artist: { '@assetType': 'artist', '@key': artist['@key'] },
       genre,
-      !!(explicit === '1' || explicit === 'Explicit'),
-      streamingServicesOG.map((ss) => ({ '@assetType': 'streaming', '@key': ss['@key'] })),
-    ).then((r) => r);
+      explicit: !!(explicit === '1' || explicit === 'Explicit'),
+      strOptions: streamingServicesOG.map((ss) => ({ '@assetType': 'streaming', '@key': ss['@key'] })),
+    }).then((r) => r);
     if (response.status === 200) {
       alert('The album was successfully updated!');
-      history.push('/album/');
+      history.push('/albuns/');
     }
   };
 
   useEffect(async () => {
-    await getAssetData('album', id)
+    await getAssetData('album:'.concat(id))
       .then((r) => {
         setName(r.data.result[0].name);
         setYear(r.data.result[0].year);
@@ -46,12 +46,12 @@ const EditAlbumPage = () => {
         artistID = r.data.result[0].artist['@key'];
         setStreamingServices(r.data.result[0].strOptions);
       });
-    getAssetData2(artistID).then((r) => setArtist(r.data.result[0]));
+    getAssetData(artistID).then((r) => setArtist(r.data.result[0]));
   }, []);
 
   useEffect(async () => {
     const promises = streamingServices.map(async (ss) => new Promise((resolve) => {
-      setTimeout(() => resolve(getAssetData2(ss['@key'])), 1000);
+      setTimeout(() => resolve(getAssetData(ss['@key'])), 1000);
     }));
     setStreamingServicesOG(await (await Promise.all(promises)).map(
       (x) => x.data.result[0],
@@ -59,7 +59,7 @@ const EditAlbumPage = () => {
   }, [streamingServices]);
 
   return (
-    <AssetForm title="Edit" asset="Album" submitFunction={updateArtistData}>
+    <AssetForm title="Edit" asset="Album" submitFunction={updateAlbumData}>
       <AlbumForm
         name={name}
         setName={setName}
@@ -73,7 +73,6 @@ const EditAlbumPage = () => {
         setExplicit={setExplicit}
         year={year}
         setYear={setYear}
-        submitFunction={updateArtistData}
         selectedStreamingServices={streamingServicesOG}
         setSelectedStreamingServices={setStreamingServicesOG}
         disableInputs

@@ -2,7 +2,7 @@ import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { Grid, Row } from 'react-flexbox-grid';
 import AlbumData from '../../Components/AlbumData';
-import { getAssetData, getArtistAlbuns } from '../../Services/artistServices';
+import { getAssetData, searchAsset } from '../../Services/artistServices';
 import {
   ArtistData, Title, InformationTitle,
 } from './Style';
@@ -21,12 +21,13 @@ const ArtistPage = () => {
   ));
 
   useEffect(async () => {
-    await getAssetData('artist', id)
+    await getAssetData('artist:'.concat(id))
       .then((r) => setArtistInformation(r.data.result[0]));
   }, []);
 
   useEffect(async () => {
-    await getArtistAlbuns(id)
+    console.log(id);
+    await searchAsset('album', ({ artist: { '@key': 'artist:'.concat(id) } }))
       .then((r) => setAlbunsList(r.data.result));
   }, []);
 

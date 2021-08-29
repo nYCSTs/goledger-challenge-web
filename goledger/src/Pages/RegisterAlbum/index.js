@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useHistory } from 'react-router';
 import AlbumForm from '../../Components/AlbumForm';
 import AssetForm from '../../Components/AssetForm';
-import { registerAlbum } from '../../Services/artistServices';
+import { registerAsset } from '../../Services/artistServices';
 
 const RegisterAlbum = () => {
   const history = useHistory();
@@ -16,15 +16,18 @@ const RegisterAlbum = () => {
 
   const submitRegister = async () => {
     if (albumName && genre) {
-      const response = await registerAlbum(
-        albumName,
-        genre,
+      const response = await registerAsset('album', {
+        name: albumName,
         year,
-        artist,
         nTracks,
-        explicit === '1',
-        selectedStreamingServices,
-      ).then((r) => (r));
+        artist: {
+          '@assetType': 'artist',
+          '@key': artist['@key'],
+        },
+        genre,
+        explicit: explicit === '1',
+        strOptions: selectedStreamingServices.map((so) => ({ '@assetType': 'streaming', '@key': so['@key'] })),
+      });
       if (response.status === 200) {
         alert('Album was registered with success!');
       } else if (response.status === 409) {

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import AssetForm from '../../Components/AssetForm';
 import ArtistForm from '../../Components/ArtistForm';
 import countryCodes from '../../Constants/countryCodes';
-import { getAssetData, updateArtist } from '../../Services/artistServices';
+import { getAssetData, updateAsset } from '../../Services/artistServices';
 
 const EditArtistPage = () => {
   const history = useHistory();
@@ -13,11 +13,11 @@ const EditArtistPage = () => {
   const [artistDescription, setArtistDescription] = useState();
 
   const updateArtistData = async () => {
-    const response = await updateArtist(
-      artistName,
-      countryCodes.filter((r) => r.code === selectedCountry)[0].name,
-      artistDescription,
-    ).then((r) => (r));
+    const response = await updateAsset('artist', {
+      name: artistName,
+      location: countryCodes.filter((r) => r.code === selectedCountry)[0].name,
+      description: artistDescription,
+    }).then((r) => r);
     if (response.status === 200) {
       alert('The artist was successfully updated!');
       history.push('/artists/');
@@ -25,7 +25,7 @@ const EditArtistPage = () => {
   };
 
   useEffect(async () => {
-    await getAssetData('artist', id)
+    await getAssetData('artist:'.concat(id))
       .then((r) => {
         setArtistName(r.data.result[0].name);
         setArtistDescription(r.data.result[0].description);

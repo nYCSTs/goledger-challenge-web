@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 import RegisterAsset from '../../Components/AssetForm';
-import { registerStreaming } from '../../Services/artistServices';
+import { registerAsset } from '../../Services/artistServices';
 import { P, Input } from '../../Constants/usefulStyles';
 
 const RegisterStreamingService = () => {
@@ -9,7 +9,7 @@ const RegisterStreamingService = () => {
   const [serviceName, setServiceName] = useState();
 
   const submitRegister = async () => {
-    const response = await registerStreaming(serviceName)
+    const response = await registerAsset('streaming', { name: serviceName })
       .then((ss) => ss);
     if (response.status === 200) {
       alert('Streaming service was registered with success!');

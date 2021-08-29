@@ -9,7 +9,7 @@ import {
 } from './Style';
 
 const ArtistData = ({
-  type, data, description = 'No description available for this artist :(',
+  type, data, description = 'No description available for this artist :(', refreshFunction,
 }) => {
   const key = data['@key'].substring(data['@key'].indexOf(':') + 1);
   const history = useHistory();
@@ -65,6 +65,7 @@ const ArtistData = ({
         setModalState={setModalState}
         modalState={modalState}
         data={data}
+        refreshFunction={refreshFunction}
       />
     </>
   );

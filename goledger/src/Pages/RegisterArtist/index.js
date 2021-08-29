@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 import RegisterAsset from '../../Components/AssetForm';
 import ArtistForm from '../../Components/ArtistForm';
 import countryCodes from '../../Constants/countryCodes';
-import { registerArtist } from '../../Services/artistServices';
+import { registerAsset } from '../../Services/artistServices';
 
 const RegisterArtist = () => {
   const history = useHistory();
@@ -12,14 +12,20 @@ const RegisterArtist = () => {
   const [selectedCountry, setSelectedCountry] = useState();
 
   const submitRegister = async () => {
-    const response = await registerArtist(
-      artistName,
-      artistDescription,
-      countryCodes.filter((r) => r.code === selectedCountry)[0].name,
-    );
-    if (response.status === 200) {
-      alert('Artist was successfully registered!');
+    if (artistName && artistDescription && selectedCountry) {
+      const response = await registerAsset('artist', {
+        name: artistName,
+        description: artistDescription,
+        location: countryCodes.filter((r) => r.code === selectedCountry)[0].name,
+      }).then((r) => r);
+      if (response.status === 200) {
+        alert('Artist was successfully registered!');
+      } else if (response.status === 409) {
+        alert('This artist has already been registered.');
+      }
       history.push('/artists');
+    } else {
+      alert('Please fill in all fields.');
     }
   };
 
