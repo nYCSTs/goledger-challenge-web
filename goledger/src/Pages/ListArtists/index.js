@@ -11,20 +11,15 @@ const ListArtists = () => {
       .then((r) => setArtistList(r.data.result));
   };
 
-  const renderArtists = () => {
-    if (artistList?.length === 0) {
-      return <h1>Carregando...</h1>;
-    }
-    return artistList?.map((data, idx) => (
-      <ArtistData
-        key={idx}
-        type="artist"
-        data={data}
-        description={data.description}
-        refreshFunction={getArtistList}
-      />
-    ));
-  };
+  const renderArtists = () => artistList?.map((data, idx) => (
+    <ArtistData
+      key={idx}
+      type="artist"
+      data={data}
+      description={data.description}
+      refreshFunction={getArtistList}
+    />
+  ));
 
   useEffect(() => {
     getArtistList();

@@ -10,9 +10,11 @@ const RegisterArtist = () => {
   const [artistName, setArtistName] = useState();
   const [artistDescription, setArtistDescription] = useState();
   const [selectedCountry, setSelectedCountry] = useState();
+  const [slide, setSlide] = useState(false);
 
   const submitRegister = async () => {
     if (artistName && artistDescription && selectedCountry) {
+      setSlide(true);
       const response = await registerAsset('artist', {
         name: artistName,
         description: artistDescription,
@@ -30,7 +32,7 @@ const RegisterArtist = () => {
   };
 
   return (
-    <RegisterAsset asset="Artist" submitFunction={submitRegister} title="Register">
+    <RegisterAsset asset="Artist" submitFunction={submitRegister} title="Register" slide={slide}>
       <ArtistForm
         name={artistName}
         setName={setArtistName}

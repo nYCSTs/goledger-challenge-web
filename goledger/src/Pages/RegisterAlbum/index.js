@@ -12,10 +12,12 @@ const RegisterAlbum = () => {
   const [nTracks, setNTracks] = useState(1);
   const [explicit, setExplicit] = useState('Safe');
   const [albumName, setAlbumName] = useState('');
+  const [slide, setSlide] = useState(false);
   const [selectedStreamingServices, setSelectedStreamingServices] = useState([]);
 
   const submitRegister = async () => {
     if (albumName && genre) {
+      setSlide(true);
       const response = await registerAsset('album', {
         name: albumName,
         year,
@@ -40,7 +42,7 @@ const RegisterAlbum = () => {
   };
 
   return (
-    <AssetForm title="Register" asset="Album" submitFunction={submitRegister}>
+    <AssetForm title="Register" asset="Album" submitFunction={submitRegister} slide={slide}>
       <AlbumForm
         name={albumName}
         setName={setAlbumName}

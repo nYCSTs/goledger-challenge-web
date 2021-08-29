@@ -10,28 +10,34 @@ const EditAlbumPage = () => {
   let artistID;
   const history = useHistory();
   const { id } = useParams();
+  const [name, setName] = useState();
   const [genre, setGenre] = useState();
   const [artist, setArtist] = useState('');
   const [year, setYear] = useState('2021');
   const [nTracks, setNTracks] = useState(1);
+  const [slide, setSlide] = useState(false);
   const [explicit, setExplicit] = useState();
-  const [name, setName] = useState();
   const [streamingServices, setStreamingServices] = useState([]);
   const [streamingServicesOG, setStreamingServicesOG] = useState([]);
 
   const updateAlbumData = async () => {
-    const response = await updateAsset('album', {
-      name,
-      year,
-      nTracks,
-      artist: { '@assetType': 'artist', '@key': artist['@key'] },
-      genre,
-      explicit: !!(explicit === '1' || explicit === 'Explicit'),
-      strOptions: streamingServicesOG.map((ss) => ({ '@assetType': 'streaming', '@key': ss['@key'] })),
-    }).then((r) => r);
-    if (response.status === 200) {
-      alert('The album was successfully updated!');
+    if (genre !== '') {
+      setSlide(true);
+      const response = await updateAsset('album', {
+        name,
+        year,
+        nTracks,
+        artist: { '@assetType': 'artist', '@key': artist['@key'] },
+        genre,
+        explicit: !!(explicit === '1' || explicit === 'Explicit'),
+        strOptions: streamingServicesOG.map((ss) => ({ '@assetType': 'streaming', '@key': ss['@key'] })),
+      }).then((r) => r);
+      if (response.status === 200) {
+        alert('The album was successfully updated!');
+      }
       history.push('/albuns/');
+    } else {
+      alert('Please fill in all fields.');
     }
   };
 
@@ -59,7 +65,7 @@ const EditAlbumPage = () => {
   }, [streamingServices]);
 
   return (
-    <AssetForm title="Edit" asset="Album" submitFunction={updateAlbumData}>
+    <AssetForm title="Edit" asset="Album" submitFunction={updateAlbumData} slide={slide}>
       <AlbumForm
         name={name}
         setName={setName}

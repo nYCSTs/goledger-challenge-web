@@ -9,16 +9,22 @@ import {
 const EditStreamingPage = () => {
   const { id } = useParams();
   const history = useHistory();
+  const [slide, setSlide] = useState(false);
   const [streamingServiceName, setStreamingServiceName] = useState();
 
   const updateStreamingService = async () => {
-    await deleteAsset('streaming:'.concat(id))
-      .then((r) => r);
-    const response = await registerAsset('streaming', { name: streamingServiceName })
-      .then((ss) => ss);
-    if (response.status === 200) {
-      alert('The streaming service was successfully updated!');
+    if (streamingServiceName !== '') {
+      setSlide(true);
+      await deleteAsset('streaming:'.concat(id))
+        .then((r) => r);
+      const response = await registerAsset('streaming', { name: streamingServiceName })
+        .then((ss) => ss);
+      if (response.status === 200) {
+        alert('The streaming service was successfully updated!');
+      }
       history.push('/streaming/');
+    } else {
+      alert('Please fill in all fields.');
     }
   };
 
@@ -28,7 +34,7 @@ const EditStreamingPage = () => {
   }, []);
 
   return (
-    <AssetForm asset="streaming" title="Streaming" submitFunction={updateStreamingService}>
+    <AssetForm asset="streaming" title="Streaming" submitFunction={updateStreamingService} slide={slide}>
       <StreamingForm
         streamingServiceName={streamingServiceName}
         setStreamingServiceName={setStreamingServiceName}

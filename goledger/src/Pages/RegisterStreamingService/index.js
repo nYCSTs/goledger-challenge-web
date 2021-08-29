@@ -7,22 +7,29 @@ import { P, Input } from '../../Constants/usefulStyles';
 const RegisterStreamingService = () => {
   const history = useHistory();
   const [serviceName, setServiceName] = useState();
+  const [slide, setSlide] = useState(false);
 
   const submitRegister = async () => {
-    const response = await registerAsset('streaming', { name: serviceName })
-      .then((ss) => ss);
-    if (response.status === 200) {
-      alert('Streaming service was registered with success!');
-    } else if (response.status === 409) {
-      alert('This streaming service has already been registered.');
+    if (serviceName) {
+      setSlide(true);
+      const response = await registerAsset('streaming', { name: serviceName })
+        .then((ss) => ss);
+      if (response.status === 200) {
+        alert('Streaming service was registered with success!');
+      } else if (response.status === 409) {
+        alert('This streaming service has already been registered.');
+      }
+      history.push('/streaming/');
+    } else {
+      alert('Please fill in all fields.');
     }
-    history.push('/streaming/');
   };
   return (
     <RegisterAsset
       title="Register"
       asset="Streaming"
       submitFunction={submitRegister}
+      slide={slide}
     >
       <div>
         <P>Streaming service name:</P>

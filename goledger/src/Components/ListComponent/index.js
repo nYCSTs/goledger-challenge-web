@@ -1,5 +1,6 @@
 import { Grid, Row } from 'react-flexbox-grid';
 import { useHistory } from 'react-router';
+import Loading from '../Loading';
 import {
   Button, H2, Title,
 } from './Style';
@@ -18,7 +19,7 @@ const ListComponent = ({ type, list, registPath }) => {
       </Title>
       <Grid>
         <Row>
-          {list}
+          {list.length ? list : <Loading />}
         </Row>
       </Grid>
     </>

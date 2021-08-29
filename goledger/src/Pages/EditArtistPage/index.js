@@ -11,16 +11,22 @@ const EditArtistPage = () => {
   const [artistName, setArtistName] = useState();
   const [selectedCountry, setSelectedCountry] = useState();
   const [artistDescription, setArtistDescription] = useState();
+  const [slide, setSlide] = useState(false);
 
   const updateArtistData = async () => {
-    const response = await updateAsset('artist', {
-      name: artistName,
-      location: countryCodes.filter((r) => r.code === selectedCountry)[0].name,
-      description: artistDescription,
-    }).then((r) => r);
-    if (response.status === 200) {
-      alert('The artist was successfully updated!');
+    if (artistDescription !== '') {
+      setSlide(true);
+      const response = await updateAsset('artist', {
+        name: artistName,
+        location: countryCodes.filter((r) => r.code === selectedCountry)[0].name,
+        description: artistDescription,
+      }).then((r) => r);
+      if (response.status === 200) {
+        alert('The artist was successfully updated!');
+      }
       history.push('/artists/');
+    } else {
+      alert('Please fill in all fields.');
     }
   };
 
@@ -34,7 +40,7 @@ const EditArtistPage = () => {
   }, []);
 
   return (
-    <AssetForm asset="Artist" submitFunction={updateArtistData} title="Edit">
+    <AssetForm asset="Artist" submitFunction={updateArtistData} title="Edit" slide={slide}>
       <ArtistForm
         name={artistName}
         setName={setArtistName}
