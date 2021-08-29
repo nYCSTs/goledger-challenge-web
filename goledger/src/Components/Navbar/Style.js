@@ -9,7 +9,6 @@ export const Nav = styled.div`
     padding: 10px;
     margin-bottom: 28px;
     height: 90px;
-    width: 90%;
 
     @media(max-width: 750px) {
         flex-direction: column;
