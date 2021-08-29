@@ -1,12 +1,13 @@
 import Routes from './Routes';
 import Navbar from './Components/Navbar';
+import AppDiv from './Style';
 
 function App() {
   return (
-    <div style={{ width: '90%', margin: '0 auto' }}>
+    <AppDiv>
       <Navbar />
       <Routes />
-    </div>
+    </AppDiv>
   );
 }
 
