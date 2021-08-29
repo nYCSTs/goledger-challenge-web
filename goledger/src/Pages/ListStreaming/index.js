@@ -15,8 +15,9 @@ const ListStreaming = () => {
     if (streamingList?.length === 0) {
       return <h1>Carregando...</h1>;
     }
-    return streamingList?.map((ss) => (
+    return streamingList?.map((ss, idx) => (
       <StreamingData
+        key={idx}
         data={ss}
         refreshFunction={getStreamingList}
       />
@@ -29,7 +30,7 @@ const ListStreaming = () => {
 
   return (
     <ListComponent
-      type="streaming"
+      type="Streaming"
       list={renderStreaming()}
       registPath="/streaming/register"
     />

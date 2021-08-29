@@ -10,8 +10,9 @@ const ListArtists = () => {
     if (artistList?.length === 0) {
       return <h1>Carregando...</h1>;
     }
-    return artistList?.map((data) => (
+    return artistList?.map((data, idx) => (
       <ArtistData
+        key={idx}
         type="artist"
         data={data}
         description={data.description}

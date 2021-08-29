@@ -12,8 +12,9 @@ const ArtistPage = () => {
   const [artistInformation, setArtistInformation] = useState();
   const [albunsList, setAlbunsList] = useState();
 
-  const listAlbuns = () => albunsList?.map((r) => (
+  const listAlbuns = () => albunsList?.map((r, idx) => (
     <AlbumData
+      key={idx}
       data={r}
       artistPage
     />
