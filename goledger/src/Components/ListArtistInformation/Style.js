@@ -12,8 +12,12 @@ export const InformationTitle = styled.p`
 `;
 
 export const ArtistData = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
     background-color: rgba(235,235,235,0.5);
     border-radius: 12px;
     padding: 16px;
     border: 1px solid rgba(0,0,0,0.3);
+    width: 80%;
 `;
