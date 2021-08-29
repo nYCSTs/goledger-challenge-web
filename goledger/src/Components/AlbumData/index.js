@@ -38,7 +38,17 @@ const AlbumData = ({ data, refreshFunction, artistPage }) => {
           <Information>{`Genre: ${data?.genre}`}</Information>
           <Information>
             Explicit:
-            {data.explicit ? <MdExplicit /> : <IoCheckmarkCircleSharp />}
+            {data.explicit ? (
+              <>
+                <MdExplicit style={{ marginLeft: '2px' }} />
+                <p style={{ margin: '0 0 0 2px' }}>(+18)</p>
+              </>
+            ) : (
+              <>
+                <IoCheckmarkCircleSharp style={{ marginLeft: '2px' }} />
+                <p style={{ margin: '0 0 0 2px' }}>(Safe)</p>
+              </>
+            )}
           </Information>
         </Data>
       </Col>
