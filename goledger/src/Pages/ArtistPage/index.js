@@ -1,10 +1,10 @@
+import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { Grid, Row } from 'react-flexbox-grid';
-import { useParams } from 'react-router';
 import AlbumData from '../../Components/AlbumData';
 import { getAssetData, getArtistAlbuns } from '../../Services/artistServices';
 import {
-  ArtistData, AlbunsList, Title, InformationData, InformationDiv, InformationTitle,
+  ArtistData, Title, InformationTitle,
 } from './Style';
 
 const ArtistPage = () => {
@@ -12,15 +12,12 @@ const ArtistPage = () => {
   const [artistInformation, setArtistInformation] = useState();
   const [albunsList, setAlbunsList] = useState();
 
-  const listAlbuns = () => albunsList?.map((r) => {
-    console.log(r);
-    return (
-      <AlbumData
-        data={r}
-        artistPage
-      />
-    );
-  });
+  const listAlbuns = () => albunsList?.map((r) => (
+    <AlbumData
+      data={r}
+      artistPage
+    />
+  ));
 
   useEffect(async () => {
     await getAssetData('artist', id)
@@ -35,18 +32,18 @@ const ArtistPage = () => {
   return (
     <ArtistData>
       <InformationTitle>Artist Name: </InformationTitle>
-      <InformationData>{artistInformation?.name}</InformationData>
+      <p>{artistInformation?.name}</p>
       <InformationTitle>Description:</InformationTitle>
-      <InformationData>{artistInformation?.description}</InformationData>
+      <p>{artistInformation?.description}</p>
       <hr />
-      <AlbunsList>
+      <div>
         <Title>Albuns:</Title>
         <Grid>
           <Row>
             {listAlbuns()}
           </Row>
         </Grid>
-      </AlbunsList>
+      </div>
     </ArtistData>
   );
 };

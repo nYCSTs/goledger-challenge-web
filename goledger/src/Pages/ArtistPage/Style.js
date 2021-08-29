@@ -11,16 +11,9 @@ export const InformationTitle = styled.p`
     margin: 0;
 `;
 
-export const InformationData = styled.p`
-
-`;
-
 export const ArtistData = styled.div`
     background-color: rgba(235,235,235,0.5);
     border-radius: 12px;
     padding: 16px;
     border: 1px solid rgba(0,0,0,0.3);
-`;
-
-export const AlbunsList = styled.div`
 `;

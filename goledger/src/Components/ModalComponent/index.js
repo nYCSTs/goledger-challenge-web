@@ -1,7 +1,7 @@
 import Modal from 'react-modal';
 import { deleteAsset } from '../../Services/artistServices';
 import {
-  P, Button, Buttons,
+  P, Button, ButtonsDiv,
 } from './Style';
 
 const ModalComponent = ({
@@ -40,10 +40,10 @@ const ModalComponent = ({
           <strong>{data?.name}</strong>
           ?
         </P>
-        <Buttons>
+        <ButtonsDiv>
           <Button onClick={() => setModalState(false)}>Cancel</Button>
           <Button onClick={async () => deleteAssetFromApi()}>Delete</Button>
-        </Buttons>
+        </ButtonsDiv>
       </div>
     </Modal>
   );

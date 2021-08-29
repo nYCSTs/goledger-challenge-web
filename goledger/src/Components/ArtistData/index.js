@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router';
 import { Col } from 'react-flexbox-grid';
-import { BsArrowUpShort, BsArrowDownShort, BsFillTrashFill } from 'react-icons/bs';
+import { useHistory } from 'react-router';
 import { MdModeEdit } from 'react-icons/md';
+import { BsArrowUpShort, BsArrowDownShort, BsFillTrashFill } from 'react-icons/bs';
 import ModalComponent from '../ModalComponent';
 import {
   Field, Title, P, Button, Tools, Top, A, ArtistInfo,
 } from './Style';
 
 const ArtistData = ({
-  type, data, description = 'No description for this artist :(',
+  type, data, description = 'No description available for this artist :(',
 }) => {
   const key = data['@key'].substring(data['@key'].indexOf(':') + 1);
   const history = useHistory();
@@ -24,9 +24,7 @@ const ArtistData = ({
           <Top>
             <Title>
               <ArtistInfo>
-                {data.name}
-                {' '}
-                {`(${data.location})`}
+                {`${data.name} (${data.location})` }
               </ArtistInfo>
               <A href={'/artist/'.concat(key)}>Artist Page</A>
             </Title>

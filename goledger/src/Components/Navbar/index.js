@@ -1,23 +1,20 @@
 import {
-  Nav, A, NavItem,
-  Links, HomePageLink, Button,
+  Nav, Links, HomePageLink, Button,
 } from './Style';
 
 const Navbar = () => (
   <Nav>
-    <div>
-      <HomePageLink href="/">GoLedger</HomePageLink>
-    </div>
+    <HomePageLink href="/">GoLedger</HomePageLink>
     <Links>
-      <NavItem>
-        <A href="/artists/"><Button>Artistas</Button></A>
-      </NavItem>
-      <NavItem>
-        <A href="/albuns"><Button>Albuns</Button></A>
-      </NavItem>
-      <NavItem>
-        <A href="/streaming"><Button>Streaming</Button></A>
-      </NavItem>
+      <div>
+        <a href="/artists/"><Button>Artistas</Button></a>
+      </div>
+      <div>
+        <a href="/albuns"><Button>Albuns</Button></a>
+      </div>
+      <div>
+        <a href="/streaming"><Button>Streaming</Button></a>
+      </div>
     </Links>
   </Nav>
 );

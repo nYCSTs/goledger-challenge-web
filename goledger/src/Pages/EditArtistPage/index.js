@@ -1,22 +1,27 @@
+import { useHistory, useParams } from 'react-router';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
-import ArtistForm from '../../Components/ArtistForm';
 import AssetForm from '../../Components/AssetForm';
+import ArtistForm from '../../Components/ArtistForm';
 import countryCodes from '../../Constants/countryCodes';
 import { getAssetData, updateArtist } from '../../Services/artistServices';
 
 const EditArtistPage = () => {
+  const history = useHistory();
   const { id } = useParams();
   const [artistName, setArtistName] = useState();
   const [selectedCountry, setSelectedCountry] = useState();
   const [artistDescription, setArtistDescription] = useState();
 
   const updateArtistData = async () => {
-    await updateArtist(
+    const response = await updateArtist(
       artistName,
       countryCodes.filter((r) => r.code === selectedCountry)[0].name,
       artistDescription,
     ).then((r) => (r));
+    if (response.status === 200) {
+      alert('The artist was successfully updated!');
+      history.push('/artists/');
+    }
   };
 
   useEffect(async () => {

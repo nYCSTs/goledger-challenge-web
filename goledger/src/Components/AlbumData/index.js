@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Col } from 'react-flexbox-grid';
+import { useHistory } from 'react-router';
 import { BsFillTrashFill } from 'react-icons/bs';
 import { IoCheckmarkCircleSharp } from 'react-icons/io5';
 import { MdModeEdit, MdExplicit } from 'react-icons/md';
-import { useHistory } from 'react-router';
 import ModalComponent from '../ModalComponent';
 import {
   Data, Information, AlbumTitle, Top,

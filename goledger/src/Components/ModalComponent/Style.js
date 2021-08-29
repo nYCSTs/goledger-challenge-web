@@ -13,7 +13,7 @@ export const Button = styled.button`
     margin-left: 6px;
 `;
 
-export const Buttons = styled.div`
+export const ButtonsDiv = styled.div`
     display: flex;
     justify-content: flex-end;
 `;

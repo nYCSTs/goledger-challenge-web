@@ -1,28 +1,27 @@
 import { Grid, Row } from 'react-flexbox-grid';
+import { useHistory } from 'react-router';
 import {
-  Page, Button, Listing, H2, A, Title,
+  Button, H2, Title,
 } from './Style';
 
-const ListComponent = ({ type, list, registPath }) => (
-  <Page>
-    <Title>
-      <H2>{`${type}s`}</H2>
-      <A href={registPath}>
-        <Button>
+const ListComponent = ({ type, list, registPath }) => {
+  const history = useHistory();
+  return (
+    <>
+      <Title>
+        <H2>{`${type}s`}</H2>
+        <Button onClick={() => history.push(registPath)}>
           Register
           {' '}
           {type}
         </Button>
-      </A>
-    </Title>
-    <Listing>
+      </Title>
       <Grid>
         <Row>
           {list}
         </Row>
       </Grid>
-    </Listing>
-  </Page>
-);
-
+    </>
+  );
+};
 export default ListComponent;

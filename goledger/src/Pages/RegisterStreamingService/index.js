@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import RegisterAsset from '../../Components/AssetForm';
 import { registerStreaming } from '../../Services/artistServices';
-import {
-  InputDiv, P, Input,
-} from '../../Components/AssetForm/Style';
+import { P, Input } from '../../Constants/usefulStyles';
 
 const RegisterStreamingService = () => {
   const [serviceName, setServiceName] = useState();
@@ -16,10 +14,10 @@ const RegisterStreamingService = () => {
       asset="Stream service"
       submitFunction={submitRegister}
     >
-      <InputDiv>
+      <div>
         <P>Streaming service name:</P>
         <Input onChange={(e) => setServiceName(e.target.value)} />
-      </InputDiv>
+      </div>
     </RegisterAsset>
   );
 };

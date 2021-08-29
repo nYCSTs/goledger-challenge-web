@@ -1,5 +1,5 @@
 import axios from 'axios';
-import baseURL from '../../Constants/baseUrl';
 
-export const APIArtist = axios.create({ baseURL });
-export const APIAlbum = axios.create({ baseURL });
+const APIGeneral = axios.create({ baseURL: 'http://ec2-100-26-219-1.compute-1.amazonaws.com/api/' });
+
+export default APIGeneral;

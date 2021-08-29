@@ -24,13 +24,6 @@ export const Button = styled.button`
     border-radius: 8px;
 `;
 
-export const NavItem = styled.div`
-`;
-
-export const A = styled.a`
-    
-`;
-
 export const Links = styled.div`
     display: flex;
     justify-content: space-between;

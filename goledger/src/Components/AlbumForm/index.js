@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Multiselect } from 'multiselect-react-dropdown';
-import { P, Input } from '../AssetForm/Style';
-import {
-  Multi, Select, InputDiv,
-} from './Style';
 import { getAssetDataList } from '../../Services/artistServices';
+import { Multi, Select, InputDiv } from './Style';
+import { Input, P } from '../../Constants/usefulStyles';
 
 const AlbumForm = ({
   name, setName, genre, setGenre, nTracks, setNTracks, artist, setArtist,
@@ -23,8 +21,6 @@ const AlbumForm = ({
     await getAssetDataList('streaming')
       .then((r) => setStreamingList(r.data.result));
   }, []);
-
-  console.log(explicit);
 
   return (
     <>

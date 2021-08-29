@@ -3,7 +3,7 @@ import { useHistory, useParams } from 'react-router';
 import AlbumForm from '../../Components/AlbumForm';
 import AssetForm from '../../Components/AssetForm';
 import {
-  getAssetData, getAssetData2, updateAlbum, updateAsset2,
+  getAssetData, getAssetData2, updateAlbum,
 } from '../../Services/artistServices';
 
 const EditAlbumPage = () => {
@@ -28,7 +28,7 @@ const EditAlbumPage = () => {
       genre,
       !!(explicit === '1' || explicit === 'Explicit'),
       streamingServicesOG.map((ss) => ({ '@assetType': 'streaming', '@key': ss['@key'] })),
-    ).then((r) => console.log(r));
+    ).then((r) => r);
     if (response.status === 200) {
       alert('The album was successfully updated!');
       history.push('/album/');

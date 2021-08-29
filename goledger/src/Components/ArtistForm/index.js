@@ -1,18 +1,18 @@
 import ReactFlagsSelect from 'react-flags-select';
 import {
-  InputDiv, P, Input,
-} from '../AssetForm/Style';
+  P, Input,
+} from '../../Constants/usefulStyles';
 import TextArea from './Style';
 
 const ArtistForm = ({
   name, setName, description, setDescription, country, setCountry,
 }) => (
-  <div>
-    <InputDiv>
+  <>
+    <div>
       <P>Nome:</P>
       <Input value={name} onChange={(e) => setName(e.target.value)} />
-    </InputDiv>
-    <InputDiv>
+    </div>
+    <div>
       <P>Descrição:</P>
       <TextArea
         rows={10}
@@ -20,8 +20,8 @@ const ArtistForm = ({
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
-    </InputDiv>
-    <InputDiv>
+    </div>
+    <div>
       <P>Pais:</P>
       <ReactFlagsSelect
         selected={country}
@@ -31,7 +31,7 @@ const ArtistForm = ({
         searchPlaceholder="Buscar país"
         fullWidth={false}
       />
-    </InputDiv>
-  </div>
+    </div>
+  </>
 );
 export default ArtistForm;

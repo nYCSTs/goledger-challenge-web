@@ -1,8 +1,8 @@
-import { APIArtist } from './baseService/baseService';
+import APIGeneral from './baseService/baseService';
 
 export const getAssetDataList = async (assetType) => {
   try {
-    const response = await APIArtist.post('/query/search', {
+    const response = await APIGeneral.post('/query/search', {
       query: {
         selector: {
           '@assetType': assetType,
@@ -12,15 +12,15 @@ export const getAssetDataList = async (assetType) => {
     return response;
   } catch (err) {
     console.error(err);
-    return err;
+    return err.response;
   }
 };
 
 export const getAssetData = async (assetType, assetID) => {
   try {
-    const response = await APIArtist.post('/query/search', {
-      'query': {
-        'selector': {
+    const response = await APIGeneral.post('/query/search', {
+      query: {
+        selector: {
           '@assetType': assetType,
           '@key': `${assetType}:${assetID}`,
         },
@@ -29,17 +29,33 @@ export const getAssetData = async (assetType, assetID) => {
     return response;
   } catch (err) {
     console.error(err);
-    return err;
+    return err.response;
+  }
+};
+
+export const getAssetData2 = async (ID) => {
+  try {
+    const response = await APIGeneral.post('/query/search', {
+      query: {
+        selector: {
+          '@key': `${ID}`,
+        },
+      },
+    });
+    return response;
+  } catch (err) {
+    console.error(err);
+    return err.response;
   }
 };
 
 export const getArtistAlbuns = async (artistID) => {
   try {
-    const response = await APIArtist.post('/query/search', {
-      'query': {
-        'selector': {
+    const response = await APIGeneral.post('/query/search', {
+      query: {
+        selector: {
           '@assetType': 'album',
-          'artist': {
+          artist: {
             '@key': `artist:${artistID}`,
           },
         },
@@ -48,13 +64,13 @@ export const getArtistAlbuns = async (artistID) => {
     return response;
   } catch (err) {
     console.error(err);
-    return err;
+    return err.response;
   }
 };
 
 export const registerArtist = async (artistName, artistDescription, artistCountry) => {
   try {
-    const response = await APIArtist.post('/invoke/createAsset', {
+    const response = await APIGeneral.post('/invoke/createAsset', {
       asset: [
         {
           '@assetType': 'artist',
@@ -67,13 +83,13 @@ export const registerArtist = async (artistName, artistDescription, artistCountr
     return response;
   } catch (err) {
     console.error(err);
-    return err;
+    return err.response;
   }
 };
 
 export const registerAlbum = async (name, genre, year, artist, nTracks, explicit, strOptions) => {
   try {
-    const response = await APIArtist.post('/invoke/createAsset', {
+    const response = await APIGeneral.post('/invoke/createAsset', {
       asset: [
         {
           '@assetType': 'album',
@@ -86,39 +102,40 @@ export const registerAlbum = async (name, genre, year, artist, nTracks, explicit
           },
           genre,
           explicit,
-          strOptions,
+          strOptions: strOptions.map((so) => ({ '@assetType': 'streaming', '@key': so['@key'] })),
         },
       ],
     });
     return response;
   } catch (err) {
     console.error(err);
-    return err;
+    return err.response;
   }
 };
 
 export const deleteAsset = async (assetID) => {
   try {
-    const response = await APIArtist.delete('/invoke/deleteAsset/', {
-      'data': {
-        'key': {
+    const response = await APIGeneral.delete('/invoke/deleteAsset/', {
+      data: {
+        key: {
           '@key': assetID,
         },
       },
     });
     return response;
   } catch (err) {
-    return err;
+    console.error(err);
+    return err.response;
   }
 };
 
 export const registerStreaming = async (name) => {
   try {
-    const response = await APIArtist.post('/invoke/createAsset', {
-      'asset': [
+    const response = await APIGeneral.post('/invoke/createAsset', {
+      asset: [
         {
           '@assetType': 'streaming',
-          'name': name,
+          name,
         },
       ],
     });
@@ -128,14 +145,14 @@ export const registerStreaming = async (name) => {
     return response;
   } catch (err) {
     console.error(err);
-    return err;
+    return err.response;
   }
 };
 
 export const updateArtist = async (name, location, description) => {
   try {
-    const response = await APIArtist.put('/invoke/updateAsset', {
-      'update': {
+    const response = await APIGeneral.put('/invoke/updateAsset', {
+      update: {
         '@assetType': 'artist',
         name,
         location,
@@ -148,6 +165,48 @@ export const updateArtist = async (name, location, description) => {
     return response;
   } catch (err) {
     console.error(err);
-    return err;
+    return err.response;
+  }
+};
+
+export const updateAsset = async (header) => {
+  try {
+    const response = await APIGeneral.put('/invoke/updateAsset', header);
+    return response;
+  } catch (err) {
+    console.error(err);
+    return err.response;
+  }
+};
+
+export const updateAsset2 = async (assetType, id, val) => {
+  const json = { update: { '@assetType': assetType, '@key': assetType.concat(':', id), ...val } };
+  try {
+    const response = await APIGeneral.put('/invoke/updateAsset', json);
+    return response;
+  } catch (err) {
+    console.error(err);
+    return err.response;
+  }
+};
+
+export const updateAlbum = async (name, year, nTracks, artist, genre, explicit, strOptions) => {
+  try {
+    const response = await APIGeneral.put('/invoke/updateAsset', {
+      update: {
+        '@assetType': 'album',
+        name,
+        year,
+        nTracks,
+        artist,
+        genre,
+        explicit,
+        strOptions,
+      },
+    });
+    return response;
+  } catch (err) {
+    console.error(err);
+    return err.response;
   }
 };
