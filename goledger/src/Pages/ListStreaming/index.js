@@ -4,7 +4,9 @@ import StreamingData from '../../Components/StreamingData';
 import { getAssetDataList } from '../../Services/artistServices';
 
 const ListStreaming = () => {
-  const [streamingList, setStreamingList] = useState([]);
+  const [filterWord, setFilterWord] = useState('');
+  const [streamingList, setStreamingList] = useState();
+  const [filteredStreamingList, setFilteredStreamingList] = useState();
 
   const getStreamingList = () => {
     getAssetDataList('streaming')
@@ -12,10 +14,12 @@ const ListStreaming = () => {
   };
 
   const renderStreaming = () => {
-    if (streamingList?.length === 0) {
-      return <h1>Carregando...</h1>;
+    if (!streamingList || !filteredStreamingList) {
+      return undefined;
+    } if (filteredStreamingList.length === 0) {
+      return <h1>No results.</h1>;
     }
-    return streamingList?.map((ss, idx) => (
+    return filteredStreamingList?.map((ss, idx) => (
       <StreamingData
         key={idx}
         data={ss}
@@ -28,11 +32,23 @@ const ListStreaming = () => {
     getStreamingList();
   }, []);
 
+  useEffect(() => {
+    setFilteredStreamingList(streamingList);
+  }, [streamingList]);
+
+  useEffect(() => {
+    setFilteredStreamingList(
+      streamingList?.filter((fa) => fa.name.toLowerCase().includes(filterWord.toLowerCase())),
+    );
+  }, [filterWord]);
+
   return (
     <ListComponent
       type="Streaming"
       list={renderStreaming()}
       registPath="/streaming/register"
+      filter={filterWord}
+      setFilter={setFilterWord}
     />
   );
 };

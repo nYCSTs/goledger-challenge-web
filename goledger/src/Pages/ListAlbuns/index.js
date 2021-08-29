@@ -4,7 +4,9 @@ import ListComponent from '../../Components/ListComponent';
 import { getAssetDataList } from '../../Services/artistServices';
 
 const ListAlbuns = () => {
-  const [albumList, setAlbumList] = useState([]);
+  const [filterWord, setFilterWord] = useState('');
+  const [albumList, setAlbumList] = useState();
+  const [filteredAlbumList, setFilteredAlbumList] = useState();
 
   const getAlbumList = () => {
     getAssetDataList('album')
@@ -12,10 +14,12 @@ const ListAlbuns = () => {
   };
 
   const renderAlbuns = () => {
-    if (albumList?.length === 0) {
-      return <h1>Carregando...</h1>;
+    if (!albumList || !filteredAlbumList) {
+      return undefined;
+    } if (filteredAlbumList.length === 0) {
+      return <h1>No results.</h1>;
     }
-    return albumList?.map((data, idx) => (
+    return filteredAlbumList?.map((data, idx) => (
       <AlbumData
         key={idx}
         data={data}
@@ -28,11 +32,23 @@ const ListAlbuns = () => {
     getAlbumList();
   }, []);
 
+  useEffect(() => {
+    setFilteredAlbumList(albumList);
+  }, [albumList]);
+
+  useEffect(() => {
+    setFilteredAlbumList(
+      albumList?.filter((fa) => fa.name.toLowerCase().includes(filterWord.toLowerCase())),
+    );
+  }, [filterWord]);
+
   return (
     <ListComponent
       type="Album"
       list={renderAlbuns()}
       registPath="/album/register"
+      filter={filterWord}
+      setFilter={setFilterWord}
     />
   );
 };
