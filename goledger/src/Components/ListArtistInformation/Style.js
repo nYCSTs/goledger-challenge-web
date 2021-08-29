@@ -20,4 +20,8 @@ export const ArtistData = styled.div`
     padding: 16px;
     border: 1px solid rgba(0,0,0,0.3);
     width: 80%;
+
+    @media(max-width: 750px) {
+        width: 95%;
+    }
 `;

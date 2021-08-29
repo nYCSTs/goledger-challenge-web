@@ -9,10 +9,13 @@ export const Nav = styled.div`
     padding: 10px;
     margin-bottom: 28px;
     height: 90px;
+    width: 90%;
 
-    @media(max-width: 500px) {
+    @media(max-width: 750px) {
         flex-direction: column;
         height: auto;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
     }
 `;
 
@@ -30,7 +33,7 @@ export const Links = styled.div`
     width: 230px;
     align-items: flex-end;
 
-    @media(max-width: 500px) {
+    @media(max-width: 750px) {
         margin-top: 12px;
         width: auto;
     }
