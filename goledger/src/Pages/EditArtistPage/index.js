@@ -42,6 +42,7 @@ const EditArtistPage = () => {
         setDescription={setArtistDescription}
         country={selectedCountry}
         setCountry={setSelectedCountry}
+        disableInputs
       />
     </AssetForm>
 

@@ -139,9 +139,6 @@ export const registerStreaming = async (name) => {
         },
       ],
     });
-    if (response.status === 200) {
-      alert('Streaming service registered with success.');
-    }
     return response;
   } catch (err) {
     console.error(err);

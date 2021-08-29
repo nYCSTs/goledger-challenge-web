@@ -1,17 +1,27 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router';
 import RegisterAsset from '../../Components/AssetForm';
 import { registerStreaming } from '../../Services/artistServices';
 import { P, Input } from '../../Constants/usefulStyles';
 
 const RegisterStreamingService = () => {
+  const history = useHistory();
   const [serviceName, setServiceName] = useState();
 
   const submitRegister = async () => {
-    await registerStreaming(serviceName);
+    const response = await registerStreaming(serviceName)
+      .then((ss) => ss);
+    if (response.status === 200) {
+      alert('Streaming service was registered with success!');
+    } else if (response.status === 409) {
+      alert('This streaming service has already been registered.');
+    }
+    history.push('/streaming/');
   };
   return (
     <RegisterAsset
-      asset="Stream service"
+      title="Register"
+      asset="Streaming"
       submitFunction={submitRegister}
     >
       <div>

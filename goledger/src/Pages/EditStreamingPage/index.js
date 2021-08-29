@@ -2,7 +2,9 @@ import { useHistory, useParams } from 'react-router';
 import { useState, useEffect } from 'react';
 import AssetForm from '../../Components/AssetForm';
 import StreamingForm from '../../Components/StreamingForm';
-import { getAssetData2, updateAsset } from '../../Services/artistServices';
+import {
+  getAssetData2, registerStreaming, deleteAsset,
+} from '../../Services/artistServices';
 
 const EditStreamingPage = () => {
   const { id } = useParams();
@@ -10,14 +12,11 @@ const EditStreamingPage = () => {
   const [streamingServiceName, setStreamingServiceName] = useState();
 
   const updateStreamingService = async () => {
-    const header = {
-      update: {
-        '@assetType': 'streaming',
-        name: streamingServiceName,
-      },
-    };
-    const response = await updateAsset(header)
+    await deleteAsset('streaming:'.concat(id))
       .then((r) => r);
+    const response = await registerStreaming(streamingServiceName)
+      .then((r) => r);
+    console.log(response);
     if (response.status === 200) {
       alert('The streaming service was successfully updated!');
       history.push('/streaming/');

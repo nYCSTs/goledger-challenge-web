@@ -5,12 +5,12 @@ import {
 import TextArea from './Style';
 
 const ArtistForm = ({
-  name, setName, description, setDescription, country, setCountry,
+  name, setName, description, setDescription, country, setCountry, disableInputs = false,
 }) => (
   <>
     <div>
       <P>Nome:</P>
-      <Input value={name || ''} onChange={(e) => setName(e.target.value)} />
+      <Input disabled={disableInputs} value={name || ''} onChange={(e) => setName(e.target.value)} />
     </div>
     <div>
       <P>Descrição:</P>
@@ -24,6 +24,7 @@ const ArtistForm = ({
     <div>
       <P>Pais:</P>
       <ReactFlagsSelect
+        disabled={disableInputs}
         selected={country}
         onSelect={(cc) => setCountry(cc)}
         placeholder=" "
