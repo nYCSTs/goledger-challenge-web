@@ -4,6 +4,7 @@ import {
   P, Button, ButtonsDiv,
 } from './Style';
 
+Modal.setAppElement('#root');
 const ModalComponent = ({
   type, data, modalState, setModalState, refreshFunction,
 }) => {
@@ -32,6 +33,7 @@ const ModalComponent = ({
   return (
     <Modal
       isOpen={modalState}
+      onRequestClose={() => setModalState(false)}
       style={customStyles}
     >
       <div>
