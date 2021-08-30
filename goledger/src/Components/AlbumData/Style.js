@@ -37,7 +37,8 @@ export const StreamingServicesList = styled.div`
 `;
 
 export const StreamService = styled.p`
-border: 1px solid black;
-font-size: 12px;
-
+    border: 1px solid black;
+    font-size: 12px;
+    padding: 4px;
+    width: 31%;
 `;

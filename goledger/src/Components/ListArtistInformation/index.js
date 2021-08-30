@@ -7,7 +7,7 @@ import {
 } from './Style';
 import Loading from '../Loading';
 
-const ListArtistInformation = ({ id }) => {
+const ListArtistInformation = ({ id, showStreamingInfo = false }) => {
   const [albunsList, setAlbunsList] = useState();
   const [artistInformation, setArtistInformation] = useState();
 
@@ -22,6 +22,7 @@ const ListArtistInformation = ({ id }) => {
         key={idx}
         data={r}
         artistPage
+        showStreamingInfo={showStreamingInfo}
       />
     ));
   };

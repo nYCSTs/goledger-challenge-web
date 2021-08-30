@@ -7,6 +7,7 @@ const ArtistPage = () => {
   return (
     <ListArtistInformation
       id={'artist:'.concat(id)}
+      showStreamingInfo
     />
   );
 };

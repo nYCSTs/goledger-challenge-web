@@ -26,32 +26,31 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div>
-      <div>
-        {artistList.length ? (
-          <div>
-            <Carousel
-              autoPlay
-              infinite
-              showDots
-              autoPlaySpeed={5000}
-              responsive={responsive}
-              removeArrowOnDeviceType={['mobile']}
-              keyBoardControl
-            >
-              {artistList.map((a) => (
-                <CarouselDiv>
-                  <ListArtistInformation
-                    id={a['@key']}
-                  />
-                </CarouselDiv>
-              ))}
-            </Carousel>
-          </div>
-        ) : (
-          <Loading />
-        )}
-      </div>
+    <div style={{ margin: '60px auto' }}>
+      {artistList.length ? (
+        <div>
+          <Carousel
+            autoPlay={false}
+            infinite
+            showDots
+            autoPlaySpeed={5000}
+            responsive={responsive}
+            removeArrowOnDeviceType={['mobile']}
+            keyBoardControl
+          >
+            {artistList.map((a, idx) => (
+              <CarouselDiv key={idx}>
+                <ListArtistInformation
+                  id={a['@key']}
+                  showStreamingInfo
+                />
+              </CarouselDiv>
+            ))}
+          </Carousel>
+        </div>
+      ) : (
+        <Loading />
+      )}
     </div>
   );
 };
