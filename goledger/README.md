@@ -27,6 +27,13 @@ yarn install
 
 5) Open `http://localhost:3000` on your browser
 
+## Application:
+
+![Home Page](https://i.imgur.com/cwMsPXQ.gif)
+![Artist Page](https://i.imgur.com/196JioH.gif)
+![Album Page](https://i.imgur.com/GSFlW7m.gif)
+![Streaming Page](https://i.imgur.com/hr8C799.gif)
+
 ## Tecnologies/Dependencies:
 
 | Name | Link |
@@ -41,7 +48,7 @@ yarn install
 | react-icons | [Link](https://react-icons.github.io/react-icons) |
 | react-loading | [Link](https://github.com/fakiolinho/react-loading) |
 | react-modal | [Link](https://github.com/reactjs/react-modal) |
-| react-responsive-carousel | [Link](https://github.com/leandrowd/react-responsive-carousel) |
+| react-multi-carousel | [Link](https://github.com/YIZHUANG/react-multi-carousel/) |
 | react-router | [Link](https://github.com/remix-run/react-router) |
 | react-router-dom | [Link](https://github.com/remix-run/react-router/tree/main/packages/react-router-dom) |
 | styled-components | [Link](https://styled-components.com/) |
@@ -49,3 +56,6 @@ yarn install
 
 ## Screenshots:
 
+![Streaming Page](https://i.imgur.com/xhIDRyg.png)
+![Streaming Page](https://i.imgur.com/mYJ3uMG.png)
+![Streaming Page](https://i.imgur.com/SfKE0pq.png)
