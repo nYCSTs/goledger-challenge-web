@@ -5,18 +5,26 @@ import { getAssetData, searchAsset } from '../../Services/artistServices';
 import {
   ArtistData, Title, InformationTitle,
 } from './Style';
+import Loading from '../Loading';
 
 const ListArtistInformation = ({ id }) => {
   const [albunsList, setAlbunsList] = useState();
   const [artistInformation, setArtistInformation] = useState();
 
-  const listAlbuns = () => albunsList?.map((r, idx) => (
-    <AlbumData
-      key={idx}
-      data={r}
-      artistPage
-    />
-  ));
+  const listAlbuns = () => {
+    if (!albunsList) {
+      return <Loading />;
+    } if (albunsList.length === 0) {
+      return <h2>No album registered :(</h2>;
+    }
+    return albunsList?.map((r, idx) => (
+      <AlbumData
+        key={idx}
+        data={r}
+        artistPage
+      />
+    ));
+  };
 
   useEffect(async () => {
     await getAssetData(id)
