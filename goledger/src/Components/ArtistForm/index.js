@@ -21,15 +21,15 @@ const ArtistForm = ({
         onChange={(e) => setDescription(e.target.value)}
       />
     </div>
-    <div>
-      <P>Pais:</P>
+    <div style={{ color: 'black' }}>
+      <P style={{ color: 'white' }}>Pais:</P>
       <ReactFlagsSelect
         disabled={disableInputs}
         selected={country}
         onSelect={(cc) => setCountry(cc)}
         placeholder=" "
         searchable
-        searchPlaceholder="Buscar país"
+        searchPlaceholder="Search country"
         fullWidth={false}
       />
     </div>

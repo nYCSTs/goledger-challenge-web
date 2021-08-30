@@ -50,8 +50,8 @@ const ListArtists = () => {
   return (
     <ListComponent
       type="Artist"
-      list={renderArtists()}
       filter={filterWord}
+      list={renderArtists()}
       setFilter={setFilterWord}
       registPath="/artist/register"
       placeholder="filter by artist name or country"

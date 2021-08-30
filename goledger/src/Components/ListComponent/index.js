@@ -7,7 +7,7 @@ import {
 import { Input } from '../../Constants/usefulStyles';
 
 const ListComponent = ({
-  type, list, registPath, filter, setFilter,
+  type, list, registPath, filter, setFilter, placeholder,
 }) => {
   const history = useHistory();
 
@@ -17,8 +17,8 @@ const ListComponent = ({
         <H2>{`${type}s`}</H2>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <DesktopFilter>
-            <p>Filter:</p>
-            <Input style={{ marginRight: '26px' }} value={filter} onChange={(e) => setFilter(e.target.value.toLowerCase())} />
+            <p style={{ marginRight: '5px' }}>Filter:</p>
+            <Input placeholder={placeholder} style={{ marginRight: '26px' }} value={filter} onChange={(e) => setFilter(e.target.value.toLowerCase())} />
           </DesktopFilter>
           <Button onClick={() => history.push(registPath)}>
             New
@@ -28,10 +28,14 @@ const ListComponent = ({
         </div>
       </Title>
       <MobileFilter>
-        <p>Filter:</p>
-        <Input value={filter} onChange={(e) => setFilter(e.target.value.toLowerCase())} />
+        <p style={{ marginRight: '5px' }}>Filter:</p>
+        <Input
+          placeholder={placeholder}
+          value={filter}
+          onChange={(e) => setFilter(e.target.value.toLowerCase())}
+        />
       </MobileFilter>
-      <Grid fluid>
+      <Grid>
         <Row>
           {list || <Loading />}
         </Row>

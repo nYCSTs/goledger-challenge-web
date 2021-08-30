@@ -48,10 +48,10 @@ const ListAlbuns = () => {
   return (
     <ListComponent
       type="Album"
-      list={renderAlbuns()}
-      registPath="/album/register"
       filter={filterWord}
+      list={renderAlbuns()}
       setFilter={setFilterWord}
+      registPath="/album/register"
       placeholder="filter by album name or genre"
     />
   );

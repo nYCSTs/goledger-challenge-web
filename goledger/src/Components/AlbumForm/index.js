@@ -42,8 +42,12 @@ const AlbumForm = ({
             selectedValues={[artist]}
             displayValue="name"
             singleSelect
+            onSearch={(e) => console.log(e)}
             onSelect={(_, i) => setArtist(i)}
             style={{
+              optionContainer: {
+                color: 'black',
+              },
             }}
           />
         </InputDiv>

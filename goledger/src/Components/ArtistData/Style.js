@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Field = styled.div`
-    background-color: rgba(235,235,235,0.5);
+    background-color: #FFC288;
     border-radius: 8px;
     padding: 0 8px;
     margin-bottom: 12px;
@@ -40,9 +40,9 @@ export const Top = styled.div`
 `;
 
 export const A = styled.a`
-    border: 2px solid red;
+    border: 2px solid #FF6701;
     border-radius: 4px;
-    padding: 2px;
+    padding: 5px;
     text-decoration: none;
     color: black;
     font-weight: bold;

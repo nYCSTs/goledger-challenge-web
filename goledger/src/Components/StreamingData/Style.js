@@ -9,7 +9,7 @@ export const Tools = styled.div`
 
 export const Name = styled.p`
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
 `;
 
 export const Data = styled.div`
@@ -19,6 +19,6 @@ export const Data = styled.div`
     padding: 12px;
     height: 120px;
     margin-bottom: 12px;
-    background-color: #04AA6D;
+    background-color: #FFC288;
     border: 1.5px solid black;
 `;

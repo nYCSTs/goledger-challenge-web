@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
 export const Data = styled.div`
-    background-color: rgba(235,50,50,0.7);
+    background-color: #FFC288;
     border-radius: 12px;
     padding: 8px;
     border: 1px solid rgba(0,0,0,0.3);
     margin-bottom: 12px;
-    height: 320px;
 `;
 
 export const Information = styled.p`
@@ -31,4 +30,14 @@ export const Top = styled.div`
     display: flex;
     justify-content: space-between;
     height: 90px;
+`;
+
+export const StreamingServicesList = styled.div`
+    background-color: blue;
+`;
+
+export const StreamService = styled.p`
+border: 1px solid black;
+font-size: 12px;
+
 `;
