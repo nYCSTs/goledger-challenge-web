@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Field = styled.div`
     background-color: rgba(235,235,235,0.5);
     border-radius: 8px;
-    padding: 8px;
+    padding: 0 8px;
     margin-bottom: 12px;
     border: 1px solid rgba(0,0,0,0.3);
 `;

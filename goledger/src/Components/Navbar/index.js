@@ -7,10 +7,10 @@ const Navbar = () => (
     <HomePageLink href="/">GoLedger</HomePageLink>
     <Links>
       <div>
-        <a href="/artists/"><Button>Artistas</Button></a>
+        <a href="/artists/"><Button>Artists</Button></a>
       </div>
       <div>
-        <a href="/albuns"><Button>Albuns</Button></a>
+        <a href="/albuns"><Button>Albums</Button></a>
       </div>
       <div>
         <a href="/streaming"><Button>Streaming</Button></a>

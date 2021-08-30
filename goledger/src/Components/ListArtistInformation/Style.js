@@ -6,7 +6,7 @@ export const Title = styled.p`
 `;
 
 export const InformationTitle = styled.p`
-    font-size: 26px;
+    font-size: 18px;
     font-weight: bold;
     margin: 0;
 `;

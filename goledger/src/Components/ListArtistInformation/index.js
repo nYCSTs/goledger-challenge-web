@@ -36,7 +36,7 @@ const ListArtistInformation = ({ id }) => {
       <p>{artistInformation?.description}</p>
       <hr />
       <div>
-        <Title>Albuns:</Title>
+        <Title>Albums:</Title>
         <Grid>
           <Row>
             {listAlbuns()}

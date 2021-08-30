@@ -20,5 +20,5 @@ export const Data = styled.div`
     height: 120px;
     margin-bottom: 12px;
     background-color: #04AA6D;
-    border: 2px solid black;
+    border: 1.5px solid black;
 `;
