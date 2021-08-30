@@ -19,7 +19,7 @@ const ArtistData = ({
 
   return (
     <>
-      <Col xs={12} md={12} sm={12}>
+      <Col xd={12} md={12} sm={12} xs={12}>
         <Field>
           <Top>
             <Title>
@@ -43,7 +43,7 @@ const ArtistData = ({
             <P>
               {showDescription ? description : null}
             </P>
-            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '5px 0' }}>
               <Button onClick={() => {
                 setShowDescription(!showDescription);
                 if (showDescription) {

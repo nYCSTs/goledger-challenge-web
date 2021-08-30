@@ -33,23 +33,25 @@ const AlbumData = ({ data, refreshFunction, artistPage }) => {
               </Tools>
             ) : null}
           </Top>
-          <Information>{`Tracks: ${data?.nTracks}`}</Information>
-          <Information>{`Year: ${data?.year}`}</Information>
-          <Information>{`Genre: ${data?.genre}`}</Information>
-          <Information>
-            Explicit:
-            {data.explicit ? (
-              <>
-                <MdExplicit style={{ marginLeft: '2px' }} />
-                <p style={{ margin: '0 0 0 2px' }}>(+18)</p>
-              </>
-            ) : (
-              <>
-                <IoCheckmarkCircleSharp style={{ marginLeft: '2px' }} />
-                <p style={{ margin: '0 0 0 2px' }}>(Safe)</p>
-              </>
-            )}
-          </Information>
+          <div>
+            <Information>{`Tracks: ${data?.nTracks}`}</Information>
+            <Information>{`Year: ${data?.year}`}</Information>
+            <Information>{`Genre: ${data?.genre}`}</Information>
+            <Information>
+              Explicit:
+              {data.explicit ? (
+                <>
+                  <MdExplicit style={{ marginLeft: '2px' }} />
+                  <p style={{ margin: '0 0 0 2px' }}>(+18)</p>
+                </>
+              ) : (
+                <>
+                  <IoCheckmarkCircleSharp style={{ marginLeft: '2px' }} />
+                  <p style={{ margin: '0 0 0 2px' }}>(Safe)</p>
+                </>
+              )}
+            </Information>
+          </div>
         </Data>
       </Col>
       <ModalComponent

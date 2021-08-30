@@ -18,9 +18,9 @@ export const Button = styled.button`
     font-weight: bold;
 
     &:hover {
-        background-color: #FFC288;
+        background-color: #DBE2EF;
+        border: 1px solid #DBE2EF;
         color: black;
-        border: 1px solid black;
     }
 
     @media(max-width: 750px) {
@@ -31,7 +31,7 @@ export const Button = styled.button`
 `;
 
 export const H2 = styled.h2`
-    font-size: 30px;
+    font-size: 32px;
     margin: 0;
 
     @media(max-width: 750px) {

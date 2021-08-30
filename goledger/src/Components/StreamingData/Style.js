@@ -19,6 +19,6 @@ export const Data = styled.div`
     padding: 12px;
     height: 120px;
     margin-bottom: 12px;
-    background-color: #FFC288;
+    background-color: #3F72AF;
     border: 1.5px solid black;
 `;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Field = styled.div`
-    background-color: #FFC288;
+    background-color: #3F72AF;
     border-radius: 8px;
     padding: 0 8px;
     margin-bottom: 12px;
@@ -12,7 +12,7 @@ export const ArtistInfo = styled.p`
     font-size: 18px;
     margin-right: 10px;
     font-weight: bold;
-    width: 120px;
+    width: 160px;
 `;
 
 export const P = styled.p`
@@ -40,7 +40,7 @@ export const Top = styled.div`
 `;
 
 export const A = styled.a`
-    border: 2px solid #FF6701;
+    border: 2px solid #112D4E;
     border-radius: 4px;
     padding: 5px;
     text-decoration: none;

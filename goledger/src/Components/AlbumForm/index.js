@@ -76,7 +76,7 @@ const AlbumForm = ({
         </InputDiv>
       </Multi>
       <Multi>
-        <div style={{ width: '60%' }}>
+        <InputDiv>
           <P>Streaming:</P>
           <Multiselect
             options={streamingList}
@@ -84,20 +84,30 @@ const AlbumForm = ({
             onSelect={(_, s) => setSelectedStreamingServices([...selectedStreamingServices, s])}
             onRemove={(s) => setSelectedStreamingServices(s)}
             displayValue="name"
+            style={{
+              optionContainer: {
+                color: 'black',
+              },
+            }}
           />
-        </div>
-        <div>
-          <P>Explicit:</P>
-          {explicit ? (
-            <Select
-              defaultValue={explicit}
-              onChange={(e) => setExplicit(e.target.value)}
-            >
-              <option value="Safe">Safe</option>
-              <option value="Explicit">Explicit</option>
-            </Select>
-          ) : null}
-        </div>
+        </InputDiv>
+        <InputDiv>
+          <div style={{
+            display: 'flex', flexDirection: 'column', alignItems: 'center',
+          }}
+          >
+            <P>Explicit:</P>
+            {explicit ? (
+              <Select
+                defaultValue={explicit}
+                onChange={(e) => setExplicit(e.target.value)}
+              >
+                <option value="Safe">Safe</option>
+                <option value="Explicit">Explicit</option>
+              </Select>
+            ) : null}
+          </div>
+        </InputDiv>
       </Multi>
     </>
   );

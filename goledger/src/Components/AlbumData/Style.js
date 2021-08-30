@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Data = styled.div`
-    background-color: #FFC288;
+    background-color: #3F72AF;
     border-radius: 12px;
     padding: 8px;
     border: 1px solid rgba(0,0,0,0.3);

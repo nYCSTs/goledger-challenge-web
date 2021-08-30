@@ -4,9 +4,7 @@ import 'react-multi-carousel/lib/styles.css';
 import ListArtistInformation from '../../Components/ListArtistInformation';
 import Loading from '../../Components/Loading';
 import { getAssetDataList } from '../../Services/artistServices';
-import {
-  Page, Slider,
-} from './Style';
+import CarouselDiv from './Style';
 
 const HomePage = () => {
   const [artistList, setArtistList] = useState([]);
@@ -28,8 +26,8 @@ const HomePage = () => {
   }, []);
 
   return (
-    <Page>
-      <Slider>
+    <div>
+      <div>
         {artistList.length ? (
           <div>
             <Carousel
@@ -42,19 +40,19 @@ const HomePage = () => {
               keyBoardControl
             >
               {artistList.map((a) => (
-                <div style={{ padding: '0 25px' }}>
+                <CarouselDiv>
                   <ListArtistInformation
                     id={a['@key']}
                   />
-                </div>
+                </CarouselDiv>
               ))}
             </Carousel>
           </div>
         ) : (
           <Loading />
         )}
-      </Slider>
-    </Page>
+      </div>
+    </div>
   );
 };
 

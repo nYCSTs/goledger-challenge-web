@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Nav = styled.div`
     display: flex;
-    background-color: #F6F6F6;
+    background-color: #DBE2EF;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
     justify-content: space-between;
@@ -23,7 +23,8 @@ export const Nav = styled.div`
 
 export const Button = styled.button`
     background-color: Transparent;
-    border: 1px solid black;
+    border: 1px solid #252A34;
+    color: black;
     cursor: pointer;
     padding: 5px 10px;
     border-radius: 8px;
@@ -38,13 +39,14 @@ export const Links = styled.div`
     @media(max-width: 750px) {
         margin-top: 12px;
         width: auto;
+        justify-content: space-around;
     }
 `;
 
 export const HomePageLink = styled.a`
     font-size: 36px;
     font-weight: bold;
-    color: black;
+    color: #252A34;
     text-decoration: none;
 
     @media(max-width: 750px) {

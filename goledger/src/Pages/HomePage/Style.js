@@ -1,24 +1,11 @@
 import styled from 'styled-components';
 
-export const Page = styled.div`    
+const CarouselDiv = styled.div`
+    padding: 0 20px;
+
+    @media(max-width: 750px) {
+        padding: 0 6px;
+    }
 `;
 
-export const Slider = styled.div`
-
-`;
-
-export const SliderFlowControls = styled.div`
-    text-align: center;
-`;
-
-export const Information = styled.div`
-
-`;
-
-export const ArtistInformation = styled.div`
-
-`;
-
-export const AlbunsInformation = styled.div`
-
-`;
+export default CarouselDiv;

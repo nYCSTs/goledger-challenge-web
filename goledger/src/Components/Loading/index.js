@@ -3,7 +3,7 @@ import LoadingDiv from './Style';
 
 const Loading = () => (
   <LoadingDiv>
-    <ReactLoading type="spin" color="#FFC288" height={120} width={120} />
+    <ReactLoading type="spin" color="#3F72AF" height={120} width={120} />
   </LoadingDiv>
 );
 

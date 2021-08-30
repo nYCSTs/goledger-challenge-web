@@ -4,7 +4,7 @@ export const Form = styled.div`
     margin: 52px auto;
     border: 1px solid white;
     padding: 26px;
-    width: 50%;
+    width: 70%;
     color: white;
     border-radius: 6px;
 

@@ -5,7 +5,7 @@ export const Multi = styled.div`
     justify-content: space-between;
     align-items: center;
 
-    @media(max-width: 500px) {
+    @media(max-width: 750px) {
         flex-direction: column;
     }
 `;
@@ -22,7 +22,7 @@ export const Select = styled.select`
 export const InputDiv = styled.div`
     width: 45%;    
 
-    @media(max-width: 500px) {
+    @media(max-width: 750px) {
         width: 100%;
     }
 `;
