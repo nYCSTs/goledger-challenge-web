@@ -1,26 +1,61 @@
 # GoLedger Challenge
 
-In this challenge you will create a web interface to a blockchain application. In this application you must implement an artist and album registration interface.
+Application made for the GoLedger Challenge.
+The app was built using ReactJS, focusing on desktop, but it also has a good compatibility with mobile.
 
-# Requirements
+## How to run the project?
 
-- Your application should be able to add/remove/edit and show all artist, albums and streaming services.
-- Use **React** (all UI libraries are allowed)
+1) Clone the repository: `git clone https://github.com/nYCSTs/goledger-challenge-web.git`
 
-## Instructions
+2) Go to the project directory: `cd goledger-challenge-web/goledger`
 
-- Fork the repository https://github.com/goledgerdev/goledger-challenge-web
-    - Fork it, do **NOT** clone it, since you will need to send us your forked repository
-    - If you **cannot** fork it, create a private repository and give access to `samuelvenzi` and `vieirin`
-- Create an web application using React. You will implement the basic operations provided by the API, which are `Create`, `Update`, `Delete` and `Search`.
-- Improve your application with a beautiful UI.
+3) Install dependencies (npm or yarn is required)
 
-## Server
+**npm:**
 
-The data are obtained using a rest server at this address: `http://ec2-100-26-219-1.compute-1.amazonaws.com/api/`
+```bash
+npm install
+```
 
-Also, a Swagger with the endpoints specifications for the operations is provided at this address: `http://ec2-100-26-219-1.compute-1.amazonaws.com/api-docs/`
+**yarn:**
 
-## Complete the challenge
+```bash
+yarn install
+```
 
-To complete the challenge, you must send us the link to your forked repository with the code of your application. Please, provide instructions to execute the code.
+4) Start the server locally: `yarn start`
+
+5) Open `http://localhost:3000` on your browser
+
+## Application:
+
+![Home Page](https://i.imgur.com/cwMsPXQ.gif)
+![Artist Page](https://i.imgur.com/196JioH.gif)
+![Album Page](https://i.imgur.com/GSFlW7m.gif)
+![Streaming Page](https://i.imgur.com/hr8C799.gif)
+
+## Tecnologies/Dependencies:
+
+| Name | Link |
+| -- | -- |
+| React | [Link](https://pt-br.reactjs.org/) |
+| axios | [Link](https://github.com/axios/axios) |
+| ESLint | [Link](https://eslint.org/) |
+| multiselect-react-dropdown | [Link](https://github.com/srigar/multiselect-react-dropdown/) |
+| react-dom | [Link](https://github.com/facebook/react/tree/main/packages/react-dom) |
+| react-flags-select | [Link](https://github.com/ekwonye-richard/react-flags-select/) |
+| react-flexbox-grid | [Link](https://github.com/roylee0704/react-flexbox-grid) |
+| react-icons | [Link](https://react-icons.github.io/react-icons) |
+| react-loading | [Link](https://github.com/fakiolinho/react-loading) |
+| react-modal | [Link](https://github.com/reactjs/react-modal) |
+| react-multi-carousel | [Link](https://github.com/YIZHUANG/react-multi-carousel/) |
+| react-router | [Link](https://github.com/remix-run/react-router) |
+| react-router-dom | [Link](https://github.com/remix-run/react-router/tree/main/packages/react-router-dom) |
+| styled-components | [Link](https://styled-components.com/) |
+
+
+## Screenshots:
+
+![Streaming Page](https://i.imgur.com/xhIDRyg.png)
+![Streaming Page](https://i.imgur.com/mYJ3uMG.png)
+![Streaming Page](https://i.imgur.com/SfKE0pq.png)
