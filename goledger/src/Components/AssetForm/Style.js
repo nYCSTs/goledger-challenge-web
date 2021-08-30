@@ -6,12 +6,8 @@ export const Form = styled.div`
     padding: 26px;
     width: 50%;
 
-    @media(max-width: 850px) {
-        width: 80%;
-    }
-
-    @media(max-width: 500px) {
-        width: 100%;
+    @media(max-width: 750px) {
+        width: 90%;
     }
 `;
 

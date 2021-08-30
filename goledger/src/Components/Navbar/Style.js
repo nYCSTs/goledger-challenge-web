@@ -24,12 +24,13 @@ export const Button = styled.button`
     cursor: pointer;
     padding: 5px 10px;
     border-radius: 8px;
+    font-weight: bold;
 `;
 
 export const Links = styled.div`
     display: flex;
     justify-content: space-between;
-    width: 230px;
+    width: 260px;
     align-items: flex-end;
 
     @media(max-width: 750px) {

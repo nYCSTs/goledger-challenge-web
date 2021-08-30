@@ -6,9 +6,9 @@ export const Title = styled.p`
 `;
 
 export const InformationTitle = styled.p`
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 22px;
     margin: 0;
+    font-weight: bold;
 `;
 
 export const ArtistData = styled.div`

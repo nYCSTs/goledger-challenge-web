@@ -38,11 +38,12 @@ const ListArtistInformation = ({ id }) => {
 
   return (
     <ArtistData>
-      <InformationTitle>Artist Name: </InformationTitle>
-      <p>{artistInformation?.name}</p>
+      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '8px' }}>
+        <InformationTitle>Artist Name: </InformationTitle>
+        <p style={{ fontSize: '22px', margin: '0 0 0 5px' }}>{artistInformation?.name}</p>
+      </div>
       <InformationTitle>Description:</InformationTitle>
       <p>{artistInformation?.description}</p>
-      <hr />
       <div>
         <Title>Albums:</Title>
         <Grid>
