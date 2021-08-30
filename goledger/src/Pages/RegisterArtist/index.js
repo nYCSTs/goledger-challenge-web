@@ -21,7 +21,7 @@ const RegisterArtist = () => {
         location: countryCodes.filter((r) => r.code === selectedCountry)[0].name,
       }).then((r) => r);
       if (response.status === 200) {
-        alert('Artist was successfully registered!');
+        alert('The artist was successfully registered!');
       } else if (response.status === 409) {
         alert('This artist has already been registered.');
       }

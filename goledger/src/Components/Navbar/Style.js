@@ -7,6 +7,7 @@ export const Nav = styled.div`
     border-bottom-right-radius: 12px;
     justify-content: space-between;
     padding: 10px;
+    padding-top: 18px;
     margin-bottom: 28px;
     align-items: center;
     width: 100%;

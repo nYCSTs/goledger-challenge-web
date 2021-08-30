@@ -19,9 +19,9 @@ export const Information = styled.p`
 export const AlbumTitle = styled.p`
     font-size: 18px;
     font-weight: bold;
-    width: 120px;
+    width: 90%;
 
-    @media(max-width: 575px) {
+    @media(max-width: 750px) {
         width: auto;
     }
 `;

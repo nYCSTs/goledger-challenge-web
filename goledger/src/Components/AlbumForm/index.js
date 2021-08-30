@@ -27,11 +27,11 @@ const AlbumForm = ({
       <Multi>
         <InputDiv>
           <P>Name:</P>
-          <Input disabled={disableInputs} value={name || ''} onChange={(e) => setName(e.target.value)} />
+          <Input placeholder="album name" disabled={disableInputs} value={name || ''} onChange={(e) => setName(e.target.value)} />
         </InputDiv>
         <InputDiv>
           <P>Genre:</P>
-          <Input value={genre || ''} onChange={(e) => setGenre(e.target.value)} />
+          <Input placeholder="album genre" value={genre || ''} onChange={(e) => setGenre(e.target.value)} />
         </InputDiv>
       </Multi>
       <Multi>
@@ -39,7 +39,7 @@ const AlbumForm = ({
           <P>Artist:</P>
           <Multiselect
             options={artistList}
-            selectedValues={[artist]}
+            selectedValues={artist.length === 0 ? [] : [artist]}
             displayValue="name"
             singleSelect
             onSearch={(e) => console.log(e)}
@@ -84,6 +84,7 @@ const AlbumForm = ({
             onSelect={(_, s) => setSelectedStreamingServices([...selectedStreamingServices, s])}
             onRemove={(s) => setSelectedStreamingServices(s)}
             displayValue="name"
+            placeholder="streaming platforms"
             style={{
               optionContainer: {
                 color: 'black',

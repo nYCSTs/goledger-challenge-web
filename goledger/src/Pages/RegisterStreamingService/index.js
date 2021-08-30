@@ -15,7 +15,7 @@ const RegisterStreamingService = () => {
       const response = await registerAsset('streaming', { name: serviceName })
         .then((ss) => ss);
       if (response.status === 200) {
-        alert('Streaming service was registered with success!');
+        alert('The streaming platform was successfully registered!');
       } else if (response.status === 409) {
         alert('This streaming service has already been registered.');
       }
@@ -33,7 +33,7 @@ const RegisterStreamingService = () => {
     >
       <div>
         <P>Streaming service name:</P>
-        <Input onChange={(e) => setServiceName(e.target.value)} />
+        <Input placeholder="streaming service name" onChange={(e) => setServiceName(e.target.value)} />
       </div>
     </RegisterAsset>
   );

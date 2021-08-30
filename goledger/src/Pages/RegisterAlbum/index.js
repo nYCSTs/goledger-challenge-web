@@ -31,7 +31,7 @@ const RegisterAlbum = () => {
         strOptions: selectedStreamingServices.map((so) => ({ '@assetType': 'streaming', '@key': so['@key'] })),
       });
       if (response.status === 200) {
-        alert('Album was registered with success!');
+        alert('The album was successfully registered!');
       } else if (response.status === 409) {
         alert('This album has already been registered.');
       }
