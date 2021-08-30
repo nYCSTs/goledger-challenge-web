@@ -40,7 +40,10 @@ const ListArtists = () => {
 
   useEffect(() => {
     setFilteredArtistList(
-      artistList?.filter((fa) => fa.name.toLowerCase().includes(filterWord.toLowerCase())),
+      artistList?.filter(
+        (fa) => fa.name.toLowerCase().includes(filterWord.toLowerCase())
+        || fa.location.toLowerCase().includes(filterWord.toLowerCase()),
+      ),
     );
   }, [filterWord]);
 
@@ -51,6 +54,7 @@ const ListArtists = () => {
       filter={filterWord}
       setFilter={setFilterWord}
       registPath="/artist/register"
+      placeholder="filter by artist name or country"
     />
   );
 };

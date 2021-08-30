@@ -38,7 +38,10 @@ const ListAlbuns = () => {
 
   useEffect(() => {
     setFilteredAlbumList(
-      albumList?.filter((fa) => fa.name.toLowerCase().includes(filterWord.toLowerCase())),
+      albumList?.filter(
+        (fa) => fa.name.toLowerCase().includes(filterWord.toLowerCase())
+        || fa.genre.toLowerCase().includes(filterWord.toLowerCase()),
+      ),
     );
   }, [filterWord]);
 
@@ -49,6 +52,7 @@ const ListAlbuns = () => {
       registPath="/album/register"
       filter={filterWord}
       setFilter={setFilterWord}
+      placeholder="filter by album name or genre"
     />
   );
 };

@@ -49,6 +49,7 @@ const ListStreaming = () => {
       registPath="/streaming/register"
       filter={filterWord}
       setFilter={setFilterWord}
+      placeholder="filter by streaming service name"
     />
   );
 };
